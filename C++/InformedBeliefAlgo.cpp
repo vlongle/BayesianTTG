@@ -22,13 +22,15 @@ void InformedBeliefAlgo::informBelief()
 pair<int, Proposal> InformedBeliefAlgo::proposalOutcome()
 {
     Agent &proposer = game.agents[distribution(generator)];
+    game.proposerList.push_back(proposer.name);
+    cout << "inform belief proposal is " << proposer.name << endl;
 
     // only compute bestProposals again if my belief has changed!
     if (proposer.beliefChanged || proposer.bestProposals.size() == 0)
     {
-        //cout << ">> PROPOSER WEIGHT " << proposer.weight 
+        //cout << ">> PROPOSER WEIGHT " << proposer.weight
         //<< " |beliefChanged? " << proposer.beliefChanged << " | bestProposal size : "
-        //<< proposer.bestProposals.size() << endl; 
+        //<< proposer.bestProposals.size() << endl;
         double bestReward = numeric_limits<double>::min();
         vector<Proposal> bestProposals;
         //cout << "size of proposal space: " << proposer.proposalSpace.size() << endl;
@@ -65,7 +67,17 @@ pair<int, Proposal> InformedBeliefAlgo::proposalOutcome()
         }
         proposer.bestProposals = bestProposals;
     }
-
+    cout << "best proposal " << endl;
+    // debug
+    for (auto &proposal : proposer.bestProposals)
+    {
+        cout << "===========================" << endl;
+        cout << ">> coalition " << endl;
+        printSet(proposal.first);
+        cout << "\n >> divisionRule" << endl;
+        cout << proposal.second << endl;
+        cout << "===========================" << endl;
+    }
     // randomly choose an element from the best proposals!
     // TODO: test this!!
     uniform_int_distribution<int> dist(0, proposer.bestProposals.size() - 1);
@@ -126,11 +138,16 @@ pair<CoalitionStructure, vector<Coalition>> InformedBeliefAlgo::formationProcess
                                     game.evaluateCoalition({agent.weight})));
         }
 
-    return make_pair(CS, vector<Coalition>{});
+        return make_pair(CS, vector<Coalition>{});
     }
 }
 
 void InformedBeliefAlgo::updateBelief(vector<Coalition> &nonSingletonCoals)
+{
+    // pass
+}
+
+void InformedBeliefAlgo::exploitSignal(double trustLevel)
 {
     // pass
 }

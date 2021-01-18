@@ -7,6 +7,22 @@
         "complex": "cpp",
         "tuple": "cpp",
         "vector": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "array": "cpp",
+        "*.tcc": "cpp",
+        "memory": "cpp",
+        "istream": "cpp",
+        "ranges": "cpp",
+        "utility": "cpp",
+        "string": "cpp",
+        "typeinfo": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "iosfwd": "cpp",
+        "chrono": "cpp"
     }
 }

@@ -1,0 +1,1380 @@
+=============================================>=============================================>
+=============================================>
+=============================================>softmaxQ proposer is 
+softmaxQ proposer is =============================================>1
+
+=============================================>
+softmaxQ proposer is softmaxQ proposer is 2
+0
+=============================================>=============================================>
+softmaxQ proposer is 0
+
+softmaxQ proposer is softmaxQ proposer is 012
+
+softmaxQ proposer is 
+
+1
+chosen index is 66 with prob chosen index is 52 with prob 0.0126385
+0.0126385
+chosen index is 83 with prob 0.0123088
+chosen index is 25 with prob 0.0126385
+chosen index is 71 with prob 0.0115373
+softmaxQ proposer is 0
+softmaxQ proposer is 0
+chosen index is 53 with prob 0.0126385
+softmaxQ proposer is 2
+softmaxQ proposer is 1
+softmaxQ proposer is 1
+softmaxQ proposer is 0
+chosen index is 76 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 69 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 74 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 45 with prob 0.0123357
+softmaxQ proposer is 2
+chosen index is 33 with prob 0.0124853
+chosen index is 56 with prob 0.0114974
+softmaxQ proposer is 1
+chosen index is 74 with prob 0.0124853
+softmaxQ proposer is 1
+chosen index is 76 with prob 0.0126385
+chosen index is 30 with prob 0.0124697
+chosen index is 77 with prob 0.0115285
+softmaxQ proposer is 2
+softmaxQ proposer is 0
+softmaxQ proposer is 2
+chosen index is 50 with prob 0.0115285
+chosen index is 39 with prob 0.0124853
+softmaxQ proposer is 1
+chosen index is 61 with prob 0.0119426
+softmaxQ proposer is 0
+chosen index is 27 with prob 0.0123088
+softmaxQ proposer is 1
+softmaxQ proposer is 0
+chosen index is 75 with prob 0.0123088
+softmaxQ proposer is 1
+softmaxQ proposer is 1
+chosen index is 54 with prob 0.0124853
+softmaxQ proposer is 2
+chosen index is 80 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 43 with prob 0.0124853
+softmaxQ proposer is 0
+chosen index is 41 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 49 with prob 0.0123357
+softmaxQ proposer is 2
+chosen index is 58 with prob 0.0123357
+softmaxQ proposer is 0
+chosen index is 76 with prob 0.0123357
+softmaxQ proposer is 1
+chosen index is 9 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 23 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 27 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 70 with prob 0.0123357
+chosen index is 38 with prob 0.0115248
+softmaxQ proposer is 2
+chosen index is 35 with prob 0.0123357
+chosen index is 72 with prob 0.0115332
+softmaxQ proposer is 1
+chosen index is 83 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 45 with prob 0.0123357
+softmaxQ proposer is 0
+chosen index is 49 with prob 0.0115332
+chosen index is 75 with prob 0.0121385
+softmaxQ proposer is 1
+softmaxQ proposer is 1
+chosen index is 54 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 31 with prob 0.0115373
+softmaxQ proposer is 1
+softmaxQ proposer is 2
+chosen index is 60 with prob 0.0123357
+softmaxQ proposer is 1
+chosen index is 39 with prob 0.0124697
+softmaxQ proposer is 0
+chosen index is 22 with prob 0.0123357
+softmaxQ proposer is 2
+chosen index is 70 with prob 0.0115373
+softmaxQ proposer is 0
+chosen index is 46 with prob 0.0123357
+chosen index is 49 with prob 0.0124796
+softmaxQ proposer is 1
+chosen index is 26 with prob 0.0124697
+softmaxQ proposer is 0
+chosen index is 24 with prob 0.0123357
+softmaxQ proposer is 1
+chosen index is 52 with prob 0.0124796
+softmaxQ proposer is 2
+chosen index is 42 with prob 0.0115373
+softmaxQ proposer is 1
+chosen index is 86 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 38 with prob 0.0124796
+softmaxQ proposer is 2
+chosen index is 40 with prob 0.0115373
+chosen index is 32 with prob 0.0119614
+chosen index is 45 with prob 0.0121666
+softmaxQ proposer is 1
+softmaxQ proposer is 0
+chosen index is 66 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 13 with prob 0.0124697
+softmaxQ proposer is 1
+chosen index is 8 with prob 0.0124697
+softmaxQ proposer is 1
+chosen index is 81 with prob 0.0121666
+softmaxQ proposer is 2
+chosen index is 7 with prob 0.0124853
+softmaxQ proposer is 1
+chosen index is 49 with prob 0.0124796
+softmaxQ proposer is 1
+chosen index is 47 with prob 0.0124853
+softmaxQ proposer is 2
+chosen index is 35 with prob 0.0119426
+softmaxQ proposer is 1
+chosen index is 12 with prob 0.0124796
+softmaxQ proposer is 2
+chosen index is 34 with prob softmaxQ proposer is 0.01263851
+chosen index is 52 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 86 with prob 0.0115332
+
+softmaxQ proposer is 0
+chosen index is 81 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 82 with prob 0.0123357
+softmaxQ proposer is 2
+chosen index is 20 with prob 0.0103355
+softmaxQ proposer is 2
+chosen index is 75 with prob 0.0119426
+softmaxQ proposer is 2
+softmaxQ proposer is 1
+chosen index is 72 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 83 with prob 0.0126385
+ wealth 118
+ wealth 118
+ wealth 118
+=============================================>
+softmaxQ proposer is 0
+chosen index is 77 with prob 0.0119614
+softmaxQ proposer is 1
+chosen index is 29 with prob 0.0121666
+chosen index is 5 with prob 0.0115125
+softmaxQ proposer is 2
+chosen index is 24 with prob 0.0115125
+softmaxQ proposer is 1
+chosen index is 83 with prob 0.0124853
+softmaxQ proposer is 0
+chosen index is 80 with prob 0.0126385
+SEED 27 CUM PAYOFF : 354
+softmaxQ proposer is 1
+chosen index is 53 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 22 with prob 0.0119614
+softmaxQ proposer is 2
+chosen index is 9 with prob 0.00193502
+chosen index is 67 with prob 0.0124796
+softmaxQ proposer is 0
+chosen index is 29 with prob 0.0119614
+softmaxQ proposer is 0
+chosen index is 30 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 36 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 32 with prob 0.0124853
+softmaxQ proposer is 0
+chosen index is 62 with prob 0.0119614
+softmaxQ proposer is 0
+chosen index is 17 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 70 with prob 0.0119426
+softmaxQ proposer is 2
+chosen index is 68 with prob 0.0115125
+softmaxQ proposer is 0
+chosen index is 56 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 46 with prob 0.0124853
+softmaxQ proposer is 0
+softmaxQ proposer is 2
+chosen index is 2 with prob 0.0115125
+softmaxQ proposer is 2
+chosen index is 65 with prob 0.0115125
+chosen index is 63 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 29 with prob 0.0119614
+softmaxQ proposer is 0
+chosen index is 81 with prob 0.0126385
+softmaxQ proposer is 0
+=============================================>
+softmaxQ proposer is 1
+softmaxQ proposer is 0
+chosen index is 19 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 49 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 86 with prob 0.0121666
+ wealth 118
+ wealth 61.72
+ wealth 58.18
+=============================================>
+softmaxQ proposer is 2
+chosen index is 56 with prob 0.0124853
+softmaxQ proposer is 0
+chosen index is 49 with prob 0.0119614
+softmaxQ proposer is 2
+chosen index is 17 with prob 0.0124853
+softmaxQ proposer is 2
+chosen index is 15 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 58 with prob 0.0124853
+softmaxQ proposer is 0
+chosen index is 48 with prob 0.0119614
+SEED 4 CUM PAYOFF : 237.9
+softmaxQ proposer is 1
+chosen index is 39 with prob 0.0124796
+softmaxQ proposer is 1
+chosen index is 9 with prob 0.0124796
+ wealth 60
+ wealth 118
+ wealth 118
+=============================================>
+softmaxQ proposer is 0
+chosen index is 58 with prob 0.0119614
+chosen index is 51 with prob 0.0121385
+SEED 20 CUM PAYOFF : 296
+ wealth 60
+ wealth 118
+ wealth 118
+=============================================>
+softmaxQ proposer is 0
+chosen index is 63 with prob 0.0123088
+chosen index is 31 with prob 0.0144001
+SEED 8 CUM PAYOFF : 296
+softmaxQ proposer is 2
+chosen index is 20 with prob 0.0106153
+=============================================>
+softmaxQ proposer is 1
+softmaxQ proposer is 2
+softmaxQ proposer is 1
+chosen index is 73 with prob 0.0144001
+=============================================>
+softmaxQ proposer is 2
+=============================================>
+softmaxQ proposer is 2
+chosen index is 52 with prob 0.0113551
+softmaxQ proposer is 2
+chosen index is 50 with prob 0.0115248
+softmaxQ proposer is 2
+softmaxQ proposer is 0
+chosen index is 14 with prob 0.0114974
+softmaxQ proposer is 1
+chosen index is 52 with prob 0.0144001
+softmaxQ proposer is 0
+chosen index is 15 with prob 0.0114974
+softmaxQ proposer is 0
+chosen index is 50 with prob 0.0114974
+softmaxQ proposer is 2
+chosen index is 35 with prob 0.0115248
+softmaxQ proposer is 2
+chosen index is 16 with prob 0.0115248
+softmaxQ proposer is 0
+chosen index is 35 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 48 with prob 0.0112779
+chosen index is 50 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 54 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 7 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 87 with prob 0.0123088
+chosen index is 63 with prob 0.0122745
+softmaxQ proposer is 0
+chosen index is 69 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 64 with prob 0.0123088
+chosen index is 28 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 46 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 65 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 41 with prob softmaxQ proposer is 2
+softmaxQ proposer is 2
+chosen index is 37 with prob 0.0112779
+softmaxQ proposer is 0
+softmaxQ proposer is 1
+chosen index is 34 with prob 0.0121385
+softmaxQ proposer is 1
+chosen index is 66 with prob 0.0121385
+softmaxQ proposer is 0
+chosen index is 35 with prob 0.0123088
+chosen index is 7 with prob 0.0115373
+softmaxQ proposer is 0
+chosen index is 50 with prob 0.0123088
+softmaxQ proposer is 0
+softmaxQ proposer is 0
+0.0122745
+chosen index is 43 with prob 0.0113551
+softmaxQ proposer is 2
+chosen index is 62 with prob 0.0115125
+softmaxQ proposer is 1
+chosen index is 35 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 84 with prob 0.0115332
+softmaxQ proposer is 0
+chosen index is 82 with prob 0.0122745
+softmaxQ proposer is 0
+chosen index is 69 with prob 0.0115332
+softmaxQ proposer is 0
+chosen index is 83 with prob 0.0122745
+softmaxQ proposer is 1
+chosen index is 66 with prob 0.0124697
+softmaxQ proposer is 0
+chosen index is 77 with prob 0.0115332
+ wealth 21.58
+ wealth 62.85
+ wealth 19.37
+=============================================>
+SEED 12 CUM PAYOFF : 103.8
+chosen index is 42 with prob 0.0113534
+softmaxQ proposer is softmaxQ proposer is 00
+chosen index is 15 with prob 0.0122745
+softmaxQ proposer is 0
+chosen index is 54 with prob 0.0122745
+softmaxQ proposer is 2
+chosen index is 38 with prob 0.0115125
+softmaxQ proposer is 2
+chosen index is 63 with prob 0.0115125
+softmaxQ proposer is 0
+chosen index is 61 with prob 0.0122745
+=============================================>
+softmaxQ proposer is 1
+ wealth 60
+ wealth 118
+ wealth 20
+=============================================>
+chosen index is 63 with prob 0.0123776
+chosen index is 80 with prob 0.0121326
+SEED 16 CUM PAYOFF : 198
+softmaxQ proposer is 1
+chosen index is 53 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 79 with prob 0.0121326
+softmaxQ proposer is 0
+chosen index is 31 with prob 0.0121326
+chosen index is 23 with prob 0.0123161
+softmaxQ proposer is 1
+chosen index is 18 with prob 0.0123162
+softmaxQ proposer is 1
+chosen index is 10 with prob 0.0121385
+softmaxQ proposer is 2
+softmaxQ proposer is 0
+chosen index is 75 with prob 0.0123161
+softmaxQ proposer is 1
+chosen index is 18 with prob 0.0121385
+ wealth 60.98
+ wealth 57.49
+ wealth 21.13
+=============================================>
+softmaxQ proposer is 2
+=============================================>
+softmaxQ proposer is 2
+chosen index is 16 with prob 0.0125258
+SEED 24 CUM PAYOFF : softmaxQ proposer is 2
+139.6
+chosen index is 32 with prob 0.0125258
+softmaxQ proposer is 1
+chosen index is 80 with prob 0.0123088
+=============================================>
+softmaxQ proposer is 0
+softmaxQ proposer is 2
+chosen index is 30 with prob 0.0125258
+softmaxQ proposer is 0
+
+chosen index is 87 with prob 0.0113534
+softmaxQ proposer is 2
+chosen index is 14 with prob 0.0115248
+softmaxQ proposer is 2
+chosen index is 68 with prob 0.0115248
+softmaxQ proposer is 2
+chosen index is 15 with prob 0.0115248
+softmaxQ proposer is 0
+chosen index is 27 with prob 0.0113534
+ wealth 26.46
+ wealth 107.38
+ wealth 21.16
+=============================================>
+SEED 0 CUM PAYOFF : 155
+=============================================>
+softmaxQ proposer is 0
+chosen index is 39 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 2 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 31 with prob 0.0121926
+chosen index is 70 with prob 0.011672
+softmaxQ proposer is 1
+chosen index is 86 with prob 0.0121926
+softmaxQ proposer is 0
+chosen index is 8 with prob 0.0123162
+softmaxQ proposer is 1
+softmaxQ proposer is 0
+chosen index is 0 with prob 0.0125264
+softmaxQ proposer is 0
+chosen index is 79 with prob 0.0123776
+softmaxQ proposer is 1
+chosen index is 23 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 44 with prob 0.0125264
+softmaxQ proposer is 2
+chosen index is 47 with prob 0.0125264
+softmaxQ proposer is 0
+chosen index is 71 with prob 0.0123776
+chosen index is 49 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 39 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 83 with prob 0.0125264
+softmaxQ proposer is 2
+softmaxQ proposer is 1
+chosen index is 31 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 72 with prob 0.0125264
+softmaxQ proposer is 1
+chosen index is 10 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 38 with prob 0.0123776
+softmaxQ proposer is 0
+chosen index is 39 with prob 0.0123776
+softmaxQ proposer is 2
+chosen index is 56 with prob 0.0125264
+softmaxQ proposer is 1
+chosen index is 51 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 18 with prob 0.0123776
+softmaxQ proposer is 0
+chosen index is 33 with prob 0.0123776
+ wealth 60
+ wealth 60
+ wealth 60
+=============================================>
+chosen index is 32 with prob 0.0115373
+SEED 28 CUM PAYOFF : 180
+softmaxQ proposer is 2
+chosen index is 35 with prob 0.0126192
+chosen index is 35 with prob 0.0121666
+=============================================>
+softmaxQ proposer is 0
+softmaxQ proposer is 0
+chosen index is 11 with prob 0.0126192
+softmaxQ proposer is 0
+chosen index is 35 with prob 0.0121326
+softmaxQ proposer is 0
+chosen index is 73 with prob 0.0126192
+softmaxQ proposer is 0
+chosen index is 56 with prob 0.0121326
+softmaxQ proposer is 2
+chosen index is 75 with prob 0.0125258
+softmaxQ proposer is 2
+chosen index is 46 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 63 with prob 0.0126192
+softmaxQ proposer is 1
+chosen index is 39 with prob 0.0121666
+chosen index is 33 with prob 0.0123162
+softmaxQ proposer is 1
+chosen index is 49 with prob 0.0121666
+softmaxQ proposer is 2
+chosen index is 49 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 18 with prob 0.0121326
+softmaxQ proposer is 1
+chosen index is 6 with prob 0.0121666
+softmaxQ proposer is 1
+softmaxQ proposer is 0
+chosen index is 35 with prob 0.0121326
+softmaxQ proposer is 1
+chosen index is 49 with prob chosen index is 0 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 1 with prob 0.0125258
+softmaxQ proposer is 2
+chosen index is 58 with prob 0.0125258
+softmaxQ proposer is 1
+chosen index is 43 with prob 0.0121666
+softmaxQ proposer is 0
+chosen index is 0 with prob 0.0126192
+softmaxQ proposer is 2
+chosen index is 59 with prob 0.0125258
+softmaxQ proposer is 1
+chosen index is 13 with prob 0.0121666
+softmaxQ proposer is 2
+chosen index is 55 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 44 with prob 0.0125258
+0.0115125
+softmaxQ proposer is 2
+chosen index is 25 with prob 0.0114394
+softmaxQ proposer is 2
+chosen index is 26 with prob 0.011672
+softmaxQ proposer is 0
+chosen index is 19 with prob 0.0123162
+softmaxQ proposer is 1
+chosen index is 50 with prob 0.0123162
+softmaxQ proposer is 2
+chosen index is 40 with prob 0.0123088
+chosen index is 45 with prob 0.012548
+softmaxQ proposer is 2
+softmaxQ proposer is 0
+chosen index is 51 with prob 0.0115373
+softmaxQ proposer is 1
+softmaxQ proposer is 0
+chosen index is 33 with prob 0.0121326
+chosen index is 35 with prob 0.0115075
+softmaxQ proposer is 0
+chosen index is 36 with prob 0.0123162
+softmaxQ proposer is 2
+softmaxQ proposer is 0
+chosen index is 11 with prob 0.0121326
+softmaxQ proposer is 1
+chosen index is 74 with prob 0.0121666
+softmaxQ proposer is 2
+chosen index is 30 with prob 0.0126385
+ wealth 60
+ wealth 60
+ wealth 118
+=============================================>
+softmaxQ proposer is 0
+chosen index is 42 with prob 0.0126192
+SEED 9 CUM PAYOFF : 238
+ wealth 60
+ wealth 60
+ wealth 60
+=============================================>
+SEED 21 CUM PAYOFF : 180
+chosen index is 86 with prob 0.0111926
+softmaxQ proposer is 2
+chosen index is 39 with prob 0.011672
+=============================================>
+softmaxQ proposer is 1
+chosen index is 56 with prob 0.0115195
+softmaxQ proposer is 2
+softmaxQ proposer is 2
+=============================================>
+chosen index is softmaxQ proposer is 1
+0 with prob 0.0115195
+softmaxQ proposer is 2
+chosen index is 7 with prob 0.011672
+softmaxQ proposer is 1
+chosen index is 28 with prob 0.0115052
+softmaxQ proposer is 1
+chosen index is 73 with prob 0.0126385
+chosen index is 8 with prob 0.0115457
+softmaxQ proposer is 2
+chosen index is 14 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 70 with prob 0.0115457
+softmaxQ proposer is 0
+chosen index is 44 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 38 with prob 0.0115373
+softmaxQ proposer is 2
+chosen index is 33 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 27 with prob 0.0115373
+softmaxQ proposer is 1
+softmaxQ proposer is 2
+chosen index is 82 with prob 0.0121385
+softmaxQ proposer is 1
+chosen index is 78 with prob 0.0121926
+chosen index is 69 with prob 0.0115145
+softmaxQ proposer is 2
+softmaxQ proposer is 2
+chosen index is 39 with prob 0.0115145
+chosen index is 20 with prob 0.0133033
+softmaxQ proposer is 2
+softmaxQ proposer is 2
+chosen index is 34 with prob 0.0115145
+softmaxQ proposer is 1
+chosen index is 75 with prob 0.0121926
+chosen index is 41 with prob 0.0136364
+softmaxQ proposer is 2
+softmaxQ proposer is 1
+chosen index is 32 with prob 0.0136364
+softmaxQ proposer is 1
+chosen index is 10 with prob 0.0136364
+softmaxQ proposer is 0
+chosen index is 60 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 5 with prob 0.0115052
+softmaxQ proposer is 1
+chosen index is 30 with prob 0.0136364
+softmaxQ proposer is 1
+chosen index is 31 with prob 0.0136364
+softmaxQ proposer is 2
+chosen index is 52 with prob 0.0115052
+softmaxQ proposer is 2
+chosen index is 76 with prob 0.0115052
+softmaxQ proposer is 0
+chosen index is 35 with prob 0.0123088
+chosen index is 41 with prob 0.01514
+softmaxQ proposer is 1
+chosen index is 15 with prob 0.0136364
+softmaxQ proposer is 0
+chosen index is 27 with prob 0.0115373
+softmaxQ proposer is 0
+chosen index is 38 with prob 0.0123088
+chosen index is 36 with prob 0.0121658
+chosen index is 79 with prob 0.0115021
+softmaxQ proposer is 2
+softmaxQ proposer is 1
+chosen index is 65 with prob 0.0136364
+softmaxQ proposer is 0
+chosen index is 46 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 69 with prob 0.0115052
+softmaxQ proposer is 2
+chosen index is 2 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 13 with prob 0.0121658
+softmaxQ proposer is 1
+chosen index is 87 with prob 0.0115021
+softmaxQ proposer is 1
+chosen index is 81 with prob 0.0121658
+softmaxQ proposer is 0
+chosen index is 9 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 61 with prob 0.0136364
+softmaxQ proposer is 0
+chosen index is 49 with prob 0.0123162
+softmaxQ proposer is 2
+chosen index is 14 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 61 with prob 0.0121658
+softmaxQ proposer is 2
+chosen index is 35 with prob 0.0115052
+softmaxQ proposer is 1
+chosen index is 42 with prob 0.0115021
+softmaxQ proposer is 0
+chosen index is 67 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 57 with prob 0.0115021
+softmaxQ proposer is 1
+chosen index is 14 with prob 0.0121658
+softmaxQ proposer is 1
+chosen index is 1 with prob 0.00423139
+softmaxQ proposer is 2
+ wealth 61.72
+ wealth 118
+ wealth 20.18
+=============================================>
+chosen index is 19 with prob 0.0245908
+SEED 25 CUM PAYOFF : 199.9
+softmaxQ proposer is 1
+chosen index is 58 with prob 0.0115125
+softmaxQ proposer is 1
+chosen index is 70 with prob 0.0121926
+chosen index is 0 with prob 0.0113459
+softmaxQ proposer is 1
+=============================================>
+softmaxQ proposer is 0
+softmaxQ proposer is 0
+chosen index is 7 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 41 with prob 0.0154387
+softmaxQ proposer is 0
+chosen index is 30 with prob 0.0115373
+softmaxQ proposer is 0
+chosen index is 11 with prob 0.0115373
+softmaxQ proposer is 0
+chosen index is 62 with prob 0.0115373
+chosen index is 36 with prob 0.0123161
+softmaxQ proposer is 1
+chosen index is 8 with prob 0.0121658
+softmaxQ proposer is 2
+chosen index is 58 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 59 with prob 0.0115021
+softmaxQ proposer is 1
+chosen index is 46 with prob 0.0121658
+softmaxQ proposer is 2
+chosen index is 42 with prob 0.0123161
+softmaxQ proposer is 2
+chosen index is 67 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 29 with prob 0.0115021
+softmaxQ proposer is 0
+chosen index is 20 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 39 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 42 with prob 0.0123161
+ wealth 60
+ wealth 60
+ wealth 118
+=============================================>
+softmaxQ proposer is 1
+chosen index is 41 with prob 0.0115021
+softmaxQ proposer is 1
+chosen index is 88 with prob 0.0115021
+SEED 29 CUM PAYOFF : 238
+ wealth 58.72
+ wealth 19.95
+ wealth 61.03
+=============================================>
+chosen index is 35 with prob 0.013654
+chosen index is 36 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 70 with prob 0.0115457
+chosen index is 5 with prob 0.0135721
+softmaxQ proposer is 2
+SEED 17 CUM PAYOFF : softmaxQ proposer is 1
+139.7
+softmaxQ proposer is 2
+chosen index is 76 with prob 0.0113459
+softmaxQ proposer is 1
+chosen index is 48 with prob 0.0115457
+chosen index is 19 with prob 0.0136364
+softmaxQ proposer is 1
+chosen index is 17 with prob 0.0115457
+softmaxQ proposer is 1
+chosen index is 44 with prob 0.012279
+softmaxQ proposer is 2
+chosen index is 33 with prob 0.012279
+softmaxQ proposer is 1
+chosen index is 15 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 37 with prob 0.012279
+=============================================>
+softmaxQ proposer is 1
+softmaxQ proposer is 0
+softmaxQ proposer is 0
+chosen index is 77 with prob 0.0136364
+softmaxQ proposer is 0
+chosen index is 24 with prob 0.0136364
+softmaxQ proposer is 2
+chosen index is 20 with prob 0.0115125
+softmaxQ proposer is 0
+chosen index is 61 with prob 0.0136364
+softmaxQ proposer is 0
+chosen index is 33 with prob 0.0136364
+softmaxQ proposer is 2
+chosen index is 47 with prob 0.0115125
+softmaxQ proposer is 1
+chosen index is 83 with prob 0.0121926
+softmaxQ proposer is 0
+chosen index is 50 with prob 0.0136364
+softmaxQ proposer is 0
+chosen index is 82 with prob 0.0123162
+softmaxQ proposer is 1
+softmaxQ proposer is 1
+chosen index is 13 with prob 0.013654
+softmaxQ proposer is 1
+chosen index is 49 with prob 0.013654
+softmaxQ proposer is 0
+chosen index is 86 with prob 0.0123162
+softmaxQ proposer is 0
+chosen index is 64 with prob 0.0123162
+softmaxQ proposer is 1
+chosen index is 14 with prob 0.013654
+softmaxQ proposer is 0
+chosen index is 47 with prob 0.0123162
+softmaxQ proposer is 1
+chosen index is 83 with prob 0.013654
+ wealth 60.44
+ wealth 55.13
+ wealth 21.13
+=============================================>
+chosen index is 82 with prob 0.0118142
+softmaxQ proposer is 1
+chosen index is 80 with prob 0.0126385
+chosen index is 58 with prob 0.012279
+SEED 13 CUM PAYOFF : 136.7
+chosen index is 79 with prob 0.011426
+chosen index is 70 with prob 0.0126385
+softmaxQ proposer is 2
+softmaxQ proposer is 1
+chosen index is 27 with prob 0.0126385
+softmaxQ proposer is 1
+softmaxQ proposer is 1
+chosen index is 4 with prob 0.0185597
+softmaxQ proposer is 0
+chosen index is 79 with prob 0.0115373
+=============================================>
+softmaxQ proposer is 1
+softmaxQ proposer is 0
+chosen index is 47 with prob 0.0115373
+softmaxQ proposer is 2
+chosen index is 53 with prob 0.012279
+ wealth 18.5
+ wealth 23.22
+ wealth 61.08
+=============================================>
+softmaxQ proposer is 2
+chosen index is 8 with prob 0.0126385
+softmaxQ proposer is 2
+SEED 1 CUM PAYOFF : 102.8
+chosen index is 74 with prob 0.0111926
+=============================================>
+softmaxQ proposer is 2
+softmaxQ proposer is 0
+chosen index is 8 with prob 0.0123162
+softmaxQ proposer is 0
+chosen index is 73 with prob 0.012279
+softmaxQ proposer is 0
+chosen index is 27 with prob 0.0118142
+softmaxQ proposer is 1
+chosen index is 27 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 23 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 34 with prob 0.012279
+softmaxQ proposer is 0
+chosen index is 22 with prob 0.0118142
+softmaxQ proposer is 2
+chosen index is 3 with prob 0.012279
+softmaxQ proposer is 1
+chosen index is 51 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 82 with prob 0.0118142
+softmaxQ proposer is 1
+chosen index is 23 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 85 with prob 0.012279
+ wealth 60
+ wealth 118
+ wealth 60
+=============================================>
+chosen index is 36 with prob 0.0122972
+SEED 10 CUM PAYOFF : 238
+softmaxQ proposer is 0
+chosen index is 19 with prob 0.0136364
+softmaxQ proposer is 0
+chosen index is 78 with prob 0.0136364
+softmaxQ proposer is 1
+chosen index is 73 with prob 0.0122972
+=============================================>
+softmaxQ proposer is 2
+softmaxQ proposer is 2
+chosen index is 14 with prob 0.0115125
+softmaxQ proposer is 1
+chosen index is 73 with prob 0.0122972
+softmaxQ proposer is 2
+chosen index is 58 with prob 0.0115125
+softmaxQ proposer is 1
+chosen index is 66 with prob 0.0122972
+ wealth 113.28
+ wealth 60.54
+ wealth 20.18
+=============================================>
+SEED 22 CUM PAYOFF : 194
+chosen index is 22 with prob 0.00423436
+chosen index is 45 with prob 0.0115373
+softmaxQ proposer is 0
+softmaxQ proposer is 2
+=============================================>
+softmaxQ proposer is 2
+chosen index is 36 with prob 0.0131181
+softmaxQ proposer is 0
+chosen index is 7 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 37 with prob 0.0131181
+chosen index is 29 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 31 with prob 0.0131181
+softmaxQ proposer is softmaxQ proposer is 0
+0
+chosen index is 41 with prob 0.0123088
+chosen index is 9 with prob 0.0135182
+softmaxQ proposer is 0
+chosen index is 4 with prob 0.0121926
+softmaxQ proposer is 0
+softmaxQ proposer is 1
+chosen index is 7 with prob 0.012279
+softmaxQ proposer is 2
+chosen index is 15 with prob 0.0131181
+chosen index is 11 with prob 0.0129025
+softmaxQ proposer is 2
+chosen index is 58 with prob 0.0115102
+softmaxQ proposer is 0
+chosen index is 34 with prob 0.0129025
+softmaxQ proposer is 0
+chosen index is 20 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 59 with prob 0.0131181
+softmaxQ proposer is 1
+chosen index is 6 with prob 0.012279
+softmaxQ proposer is 0
+chosen index is 6 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 27 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 29 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 5 with prob 0.0131181
+softmaxQ proposer is 1
+chosen index is 48 with prob 0.0126385
+chosen index is 74 with prob 0.0115134
+softmaxQ proposer is 1
+chosen index is 58 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 33 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 60 with prob 0.0131181
+softmaxQ proposer is 0
+softmaxQ proposer is 1
+chosen index is 54 with prob 0.012279
+softmaxQ proposer is 0
+chosen index is 78 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 48 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 59 with prob 0.012279
+softmaxQ proposer is 2
+chosen index is 85 with prob 0.0115102
+ wealth 60
+ wealth 60
+ wealth 118
+=============================================>
+chosen index is 26 with prob 0.0123357
+softmaxQ proposer is 0
+chosen index is 63 with prob 0.0129025
+softmaxQ proposer is 0
+chosen index is 5 with prob 0.0123357
+SEED 26 CUM PAYOFF : 238
+softmaxQ proposer is 1
+chosen index is 26 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 61 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 46 with prob 0.0126385
+chosen index is 74 with prob 0.0135182
+softmaxQ proposer is 0
+chosen index is 71 with prob 0.0135182
+softmaxQ proposer is 2
+chosen index is 73 with prob 0.0126385
+softmaxQ proposer is 2
+softmaxQ proposer is 0
+chosen index is 24 with prob 0.0123357
+softmaxQ proposer is 0
+chosen index is 88 with prob 0.0123357
+chosen index is 79 with prob 0.0115125
+softmaxQ proposer is 1
+softmaxQ proposer is 2
+chosen index is 50 with prob 0.0121926
+softmaxQ proposer is 2
+chosen index is 29 with prob 0.0121926
+softmaxQ proposer is 0
+chosen index is 79 with prob 0.0115125
+softmaxQ proposer is 1
+softmaxQ proposer is 2
+chosen index is 40 with prob 0.0115102
+chosen index is 53 with prob 0.0124697
+softmaxQ proposer is 2
+chosen index is 78 with prob 0.0115102
+softmaxQ proposer is 1
+chosen index is 66 with prob 0.0115373
+softmaxQ proposer is 1
+chosen index is 7 with prob 0.0126385
+softmaxQ proposer is 0
+chosen index is 70 with prob 0.0129025
+softmaxQ proposer is 1
+chosen index is 33 with prob 0.0115373
+softmaxQ proposer is 0
+chosen index is 87 with prob 0.0129025
+softmaxQ proposer is 1
+chosen index is 31 with prob 0.0115373
+softmaxQ proposer is 1
+softmaxQ proposer is 1
+chosen index is 55 with prob 0.0115373
+chosen index is 83 with prob 0.0126385
+chosen index is 10 with prob 0.0115285
+softmaxQ proposer is 2
+chosen index is 71 with prob 0.0115134
+softmaxQ proposer is 0
+chosen index is 70 with prob 0.0115285
+softmaxQ proposer is 1
+softmaxQ proposer is 0
+chosen index is 50 with prob 0.0124697
+softmaxQ proposer is 2
+chosen index is 42 with prob 0.0123088
+softmaxQ proposer is 2
+softmaxQ proposer is 1
+chosen index is 22 with prob 0.00411751
+softmaxQ proposer is 0
+chosen index is 34 with prob 0.0117626
+chosen index is 31 with prob 0.0143844
+chosen index is 49 with prob 0.0129622
+softmaxQ proposer is 0
+chosen index is 34 with prob 0.0115125
+softmaxQ proposer is 2
+chosen index is 33 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 0 with prob 0.0129622
+softmaxQ proposer is 2
+chosen index is 13 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 75 with prob 0.0115125
+softmaxQ proposer is 1
+chosen index is 6 with prob 0.0117626
+softmaxQ proposer is 0
+chosen index is 45 with prob 0.0123357
+softmaxQ proposer is 1
+chosen index is 69 with prob 0.0129622
+softmaxQ proposer is 2
+chosen index is 31 with prob 0.0121926
+softmaxQ proposer is 1
+chosen index is 70 with prob 0.0117626
+softmaxQ proposer is 1
+chosen index is 13 with prob 0.0129622
+softmaxQ proposer is 0
+chosen index is 20 with prob 0.0115285
+softmaxQ proposer is 2
+chosen index is 69 with prob 0.0121926
+softmaxQ proposer is 2
+chosen index is 18 with prob 0.00649036
+softmaxQ proposer is 0
+chosen index is 45 with prob 0.0123357chosen index is 42 with prob 
+0.0154179
+softmaxQ proposer is 1
+chosen index is 12 with prob 0.0129622
+softmaxQ proposer is 2
+chosen index is 34 with prob 0.0121926
+softmaxQ proposer is 2
+chosen index is 38 with prob 0.0123088
+softmaxQ proposer is 0
+chosen index is 37 with prob 0.0123357
+ wealth 61.72
+ wealth 107.97
+ wealth 21.31
+=============================================>
+softmaxQ proposer is 1
+chosen index is 43 with prob 0.0143844
+chosen index is 83 with prob 0.0115143
+softmaxQ proposer is 0
+chosen index is 50 with prob 0.0115285
+softmaxQ proposer is 0
+chosen index is 42 with prob 0.0123357
+softmaxQ proposer is 1
+chosen index is 23 with prob 0.0115373
+softmaxQ proposer is 0
+chosen index is 8 with prob softmaxQ proposer is 0.0115125
+2
+chosen index is 41 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 87 with prob SEED 0.0117626
+18 CUM PAYOFF : softmaxQ proposer is 1
+chosen index is 41 with prob 0.0143844
+191
+softmaxQ proposer is 2
+chosen index is 32 with prob 0.0115143
+softmaxQ proposer is 2
+chosen index is 16 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 79 with prob 0.0121926
+softmaxQ proposer is 0
+softmaxQ proposer is 2softmaxQ proposer is 1
+chosen index is 35 with prob 
+0.0117626
+chosen index is 15 with prob 0.0115143
+softmaxQ proposer is 2
+chosen index is 26 with prob 0.0121926
+softmaxQ proposer is 2
+chosen index is 24 with prob 0.0115143
+softmaxQ proposer is 1
+chosen index is 67 with prob 0.0115373
+softmaxQ proposer is 1
+chosen index is 61 with prob 0.0117626
+softmaxQ proposer is 0
+chosen index is 23 with prob 0.0115125
+softmaxQ proposer is 1
+chosen index is 9 with prob 0.0115373
+softmaxQ proposer is 2
+chosen index is 50 with prob 0.0115143
+chosen index is 83 with prob 0.0135182
+softmaxQ proposer is 1
+chosen index is 70 with prob 0.0117626
+softmaxQ proposer is 1
+chosen index is 88 with prob 0.0143844
+softmaxQ proposer is 1
+chosen index is 44 with prob 0.0115373
+ wealth 71.35
+ wealth 24.88
+ wealth 22.87
+softmaxQ proposer is 1
+softmaxQ proposer is chosen index is 8 with prob 0.0115373
+softmaxQ proposer is =============================================>0
+chosen index is 
+86 with prob 0.0115125
+2
+chosen index is 14 with prob softmaxQ proposer is 0.0126385
+1
+chosen index is 39 with prob 0.0115373
+softmaxQ proposer is 2
+chosen index is 77 with prob 0.0126385
+=============================================>
+softmaxQ proposer is 0
+softmaxQ proposer is 1
+chosen index is 42 with prob 0.0143844
+ wealth 58.18
+ wealth 22.54
+ wealth 20.18
+=============================================>
+SEED 5 CUM PAYOFF :  wealth 119.1
+118
+ wealth 118
+ wealth 118
+=============================================>
+ wealth 20
+ wealth 118
+ wealth 60
+=============================================>
+=============================================>
+softmaxQ proposer is 2
+SEED 14 CUM PAYOFF : 100.9
+SEED 2 CUM PAYOFF : 354
+SEED 11 CUM PAYOFF : 198
+=============================================>
+softmaxQ proposer is 1
+=============================================>
+softmaxQ proposer is 2
+chosen index is 72 with prob 0.0121926
+softmaxQ proposer is 0
+chosen index is 48 with prob 0.0108589
+chosen index is 26 with prob softmaxQ proposer is 1
+chosen index is 10 with prob 0.01230880.0129622
+
+softmaxQ proposer is 2
+chosen index is 41 with prob 0.0123088
+softmaxQ proposer is 2
+ wealth 23.9
+ wealth 60
+ wealth 59.9
+=============================================>
+SEED 23 CUM PAYOFF : 143.8
+chosen index is 50 with prob 0.0115373
+softmaxQ proposer is 1
+chosen index is 66 with prob 0.0115373
+softmaxQ proposer is 1
+chosen index is 63 with prob 0.0115373
+chosen index is 37 with prob 0.0126385
+softmaxQ proposer is 0
+softmaxQ proposer is 0
+chosen index is 63 with prob 0.0127917
+softmaxQ proposer is 0
+chosen index is 75 with prob 0.0127917
+softmaxQ proposer is 1
+chosen index is 29 with prob 0.0115285
+softmaxQ proposer is 2
+chosen index is 74 with prob 0.0115285
+softmaxQ proposer is 1
+chosen index is 16 with prob 0.00640055
+softmaxQ proposer is 1
+chosen index is 51 with prob 0.0124853
+softmaxQ proposer is 1
+chosen index is 70 with prob 0.0114555
+softmaxQ proposer is 2
+chosen index is 81 with prob 0.0121926
+chosen index is 71 with prob 0.0121385
+softmaxQ proposer is 1
+chosen index is 61 with prob 0.0114555
+softmaxQ proposer is 2
+chosen index is 77 with prob 0.0115285
+softmaxQ proposer is 1
+chosen index is 35 with prob 0.0114555
+softmaxQ proposer is 2
+chosen index is 17 with prob 0.0115285
+softmaxQ proposer is 2
+chosen index is 72 with prob 0.0115285
+softmaxQ proposer is 0
+chosen index is 81 with prob 0.0127917
+softmaxQ proposer is 2
+chosen index is 47 with prob 0.0115285
+softmaxQ proposer is 2
+chosen index is 60 with prob 0.0115285
+softmaxQ proposer is 2
+chosen index is 56 with prob 0.0121926
+softmaxQ proposer is 0
+chosen index is 50 with prob chosen index is 71 with prob 0.0123088
+softmaxQ proposer is 2
+chosen index is 65 with prob 0.0121926
+softmaxQ proposer is 0.0113285
+0
+chosen index is 9 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 63 with prob 0.0121385
+softmaxQ proposer is 1
+softmaxQ proposer is chosen index is 2
+71 with prob 0.0114555
+softmaxQ proposer is 1
+chosen index is 35 with prob 0.0121385
+softmaxQ proposer is 1
+chosen index is 61 with prob 0.0114555
+softmaxQ proposer is 1
+chosen index is 31 with prob 0.0121385
+softmaxQ proposer is 0
+chosen index is 38 with prob 0.0127917
+softmaxQ proposer is 1
+chosen index is 61 with prob 0.0121385
+softmaxQ proposer is 2
+chosen index is 69 with prob 0.0121926
+chosen index is 7 with prob 0.0117262
+softmaxQ proposer is 0
+chosen index is 30 with prob 0.0123088
+softmaxQ proposer is 1
+chosen index is 3 with prob 0.0117262
+softmaxQ proposer is 2
+chosen index is 17 with prob 0.0121926
+softmaxQ proposer is 2
+chosen index is 47 with prob 0.0126385
+softmaxQ proposer is 2
+chosen index is 86 with prob 0.0121926
+softmaxQ proposer is 0
+softmaxQ proposer is 0
+chosen index is 55 with prob 0.0127917
+softmaxQ proposer is 0
+chosen index is 60 with prob 0.0124853
+softmaxQ proposer is 2
+chosen index is 15 with prob 0.0121926
+softmaxQ proposer is 2
+chosen index is 53 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 61 with prob 0.0114555
+softmaxQ proposer is 1
+chosen index is 70 with prob 0.0117262
+softmaxQ proposer is 0
+chosen index is 29 with prob 0.0127917
+softmaxQ proposer is 1
+chosen index is 1 with prob  wealth 0.000583813
+118
+ wealth 20
+ wealth 60
+=============================================>
+softmaxQ proposer is 0
+chosen index is 60 with prob 0.0124853
+softmaxQ proposer is 1
+chosen index is 50 with prob 0.0117262
+SEED 15 CUM PAYOFF : 198
+softmaxQ proposer is 1
+chosen index is 76 with prob 0.0117262
+softmaxQ proposer is 1
+chosen index is 19 with prob 0.0117262
+softmaxQ proposer is 1
+chosen index is 78 with prob 0.0117262
+softmaxQ proposer is 0
+chosen index is 48 with prob 0.0124853
+softmaxQ proposer is 0
+chosen index is 40 with prob 0.0124853
+softmaxQ proposer is 2
+chosen index is 60 with prob 0.0126385
+softmaxQ proposer is 1
+chosen index is 66 with prob 0.0117262
+softmaxQ proposer is 0
+chosen index is 54 with prob 0.0124853
+softmaxQ proposer is 2
+chosen index is 87 with prob 0.0126385
+ wealth 118
+ wealth 57
+ wealth 118
+=============================================>
+chosen index is 28 with prob 0.0121385
+SEED 6 CUM PAYOFF : 293
+softmaxQ proposer is 0
+chosen index is 30 with prob 0.0121385
+softmaxQ proposer is 2
+chosen index is 87 with prob 0.0121385
+=============================================>
+softmaxQ proposer is 2
+softmaxQ proposer is 1
+chosen index is 34 with prob 0.0113285
+softmaxQ proposer is 0
+chosen index is 6 with prob 0.0121385
+softmaxQ proposer is 0
+chosen index is 73 with prob 0.0121385
+chosen index is 37 with prob 0.0123161
+softmaxQ proposer is 0
+chosen index is 35 with prob 0.0121385
+softmaxQ proposer is 1
+chosen index is 9 with prob softmaxQ proposer is 0.01213851
+chosen index is 58 with prob 
+softmaxQ proposer is 0
+0.0113285
+chosen index is 69 with prob 0.0123161
+softmaxQ proposer is 0
+chosen index is 32 with prob softmaxQ proposer is 1
+chosen index is 3 with prob 0.0105521
+0.0123161
+softmaxQ proposer is 1
+ wealth 58.72
+ wealth 62.85
+ wealth 21.13
+=============================================>
+SEED 19 CUM PAYOFF : 142.7
+chosen index is 13 with prob 0.0115373
+softmaxQ proposer is 0
+chosen index is 18 with prob 0.0407682
+softmaxQ proposer is 1
+chosen index is 75 with prob 0.0126348
+softmaxQ proposer is 2
+chosen index is 24 with prob 0.0115373
+softmaxQ proposer is 2
+chosen index is 67 with prob 0.0115373
+softmaxQ proposer is 1
+chosen index is 54 with prob 0.0104636
+softmaxQ proposer is 2
+chosen index is 67 with prob 0.0121385
+softmaxQ proposer is 0
+chosen index is 80 with prob 0.0121385
+softmaxQ proposer is 1
+chosen index is 86 with prob 0.0104636
+softmaxQ proposer is 1
+chosen index is 55 with prob 0.0104636
+ wealth 59.9
+ wealth 24.08
+ wealth 61.72
+=============================================>
+SEED 3 CUM PAYOFF : 145.7
+chosen index is 41 with prob 0.0126223
+softmaxQ proposer is 0
+chosen index is 75 with prob 0.0126348
+softmaxQ proposer is 0
+chosen index is 88 with prob 0.0126348
+softmaxQ proposer is 2
+chosen index is 77 with prob 0.0115373
+softmaxQ proposer is 0
+chosen index is 58 with prob 0.0126348
+softmaxQ proposer is 0
+chosen index is 9 with prob 0.0126348
+softmaxQ proposer is 0
+chosen index is 19 with prob 0.0125966
+softmaxQ proposer is 0
+chosen index is 38 with prob 0.0125966
+softmaxQ proposer is 0
+chosen index is 62 with prob 0.0125966
+softmaxQ proposer is 1
+chosen index is 49 with prob 0.0126223
+softmaxQ proposer is 0
+chosen index is 31 with prob 0.0125966
+softmaxQ proposer is 2
+chosen index is 39 with prob 0.0115373
+softmaxQ proposer is 2
+chosen index is 60 with prob 0.0115373
+softmaxQ proposer is 0
+chosen index is 22 with prob 0.0125966
+softmaxQ proposer is 2
+chosen index is 13 with prob 0.0115373
+softmaxQ proposer is 1
+chosen index is 56 with prob 0.0126223
+ wealth 116.82
+ wealth 118
+ wealth 20.18
+=============================================>
+SEED 7 CUM PAYOFF : 255

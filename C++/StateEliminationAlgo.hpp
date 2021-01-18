@@ -89,14 +89,13 @@ public:
                     continue;
                 }
                 double weightGuess = (agent.weight) * (otherAgent.currentWealth / agent.currentWealth);
-
-                int i = 0;
-                for (int weight : game.weightRange)
+                // cout << "exploitSignal agent " << agent.name << " guess about agent " << otherAgent.name <<" weight is "
+                // << weightGuess << endl;
+                for (auto [i, weight] : enumerate(game.weightRange))
                 {
                     double GaussianPdf = exp(-trustLevel * pow(weight - weightGuess, 2));
                     //cout << "gaussian pdf " << GaussianPdf << endl;
                     agent.belief(otherAgent.name, i) *= GaussianPdf;
-                    i++;
                 }
                 // normalize row to 1.0
                 agent.belief.row(otherAgent.name) /= agent.belief.row(otherAgent.name).sum();

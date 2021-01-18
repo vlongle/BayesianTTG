@@ -3,8 +3,13 @@
 // select proposals based on softmax!
 pair<int, Proposal> SoftmaxQ::proposalOutcome()
 {
-    cout << "softmaxQ proposalOutcome " << endl;
     Agent &proposer = game.agents[distribution(generator)];
+    game.proposerList.push_back(proposer.name);
+
+    // if (seed == 0)
+    // {
+    //     cout << "softmaxQ proposer is " << proposer.name << endl;
+    // }
 
     int numProposals = proposer.proposalSpace.size();
 
@@ -15,6 +20,11 @@ pair<int, Proposal> SoftmaxQ::proposalOutcome()
     //cout << "PRINTING PROPOSAL SPACE:" << endl;
     //proposer.printProposalSpace();
     // only compute bestProposals again if my belief has changed!
+
+    // !!debug
+    double bestReward = numeric_limits<double>::min();
+    vector<Proposal> bestProposals;
+
     if (proposer.beliefChanged || proposer.proposalValues.size() == 0)
     {
         //cout << "recomputing proposer.proposalValues" << endl;
@@ -23,12 +33,11 @@ pair<int, Proposal> SoftmaxQ::proposalOutcome()
             proposer.proposalValues.resize(numProposals);
         }
 
-        double bestReward = numeric_limits<double>::min();
         //cout << "size of proposal space: " << proposer.proposalSpace.size() << endl;
-        int i = 0;
-        for (auto &proposal : proposer.proposalSpace)
+        // TODO: BUG SOMEWHERE HERE!!!!! PROPOSALVALUE CALCULATED WRONG SOMETIMES!
+        for (auto [i, proposal] : enumerate(proposer.proposalSpace))
         {
-            pair<double, map<int, int>> val_and_responses = game.predictReponses(proposer, proposal);
+            pair<double, map<int, int>> val_and_responses = game.predictReponsesDebug(proposer, proposal, seed);
             // proposerValue = coalitionValue * proposerShare
             double proposalValue = (val_and_responses.first) * proposal.second[distance(proposal.first.begin(),
                                                                                         proposal.first.find(proposer.name))];
@@ -47,23 +56,85 @@ pair<int, Proposal> SoftmaxQ::proposalOutcome()
                 proposalValue = game.evaluateCoalition({proposer.weight});
             }
             proposer.proposalValues(i) = proposalValue;
-            i++;
+            // if (seed == 0)
+            // {
+            //     cout << "===============>\n proposal: " << endl;
+            //     printSet(proposal.first);
+            //     cout << "\n " << proposal.second << endl;
+            //     cout << " agreement? " << agreement << " proposalValue: " << proposalValue << endl;
+            //     for (auto const &res: responses){
+            //         cout << "agent: " << res.first << " responses: " << res.second << endl;
+            //     }
+            //     cout << "==========>\n";
+            // }
+
+            // // debug
+            // cout << "===========================" << endl;
+            // cout << ">> coalition " << endl;
+            // printSet(proposal.first);
+            // cout << "\n >> divisionRule" << endl;
+            // cout << proposal.second << endl;
+            // cout << "proposalValue " << proposalValue << endl;
+            // cout << "===========================" << endl;
+            // // debug!!
+            // if (proposalValue > bestReward)
+            // {
+            //     bestReward = proposalValue;
+            //     bestProposals = {proposal};
+            // }
+            // else if (proposalValue == bestReward)
+            // {
+            //     bestProposals.push_back(proposal);
+            // }
         }
+
+        proposer.bestProposals = bestProposals;
     }
+
+    // cout << "\n \n >>>>>> BEST PROPOSAL with reward " << bestReward << endl;
+    // // debug
+    // for (auto &proposal : proposer.bestProposals)
+    // {
+    //     cout << "===========================" << endl;
+    //     cout << ">> coalition " << endl;
+    //     printSet(proposal.first);
+    //     cout << "\n >> divisionRule" << endl;
+    //     cout << proposal.second << endl;
+    //     cout << "===========================" << endl;
+    // }
 
     //cout << ">> PROPOSER " << proposer.name << " proposalValues:" << proposer.proposalValues << endl;
     //cout << "proposalValues:" << proposer.proposalValues << endl;
     VectorXd probs = softmax(proposer.proposalValues);
+// #pragma omp critical
+//     {
+//         if (seed == 0)
+//         {
+//             cout << "proposalValues of " << proposer.name << "\n"
+//                  << proposer.proposalValues << endl;
+//             cout << "prob\n"
+//                  << probs << endl;
+//             cout << "printing proposalSpace " << endl;
+//             proposer.printProposalSpace();
+//         }
+//     }
     //cout << "softmax " << probs << endl;
     //cout << "softmax probs:" << probs << endl;
     //cout << "softmax sum :" << probs.sum() << endl;
 
     int chosen = selectAction(probs, generator, u);
 
-    //cout << ">> PROPOSER : " << proposer.name << " CHOOSE " << endl;
-    //printSet(proposer.proposalSpace[chosen].first);
-    //cout << "\n" << proposer.proposalSpace[chosen].second << endl;
-    //cout << "chosen index is " << chosen << " with prob " << probs[chosen] << endl;
+//cout << ">> PROPOSER : " << proposer.name << " CHOOSE " << endl;
+//printSet(proposer.proposalSpace[chosen].first);
+//cout << "\n" << proposer.proposalSpace[chosen].second << endl;
+// #pragma omp critical
+//     {
+//         if (seed == 0)
+//         {
+//             cout << " seed " << seed << "| proposer " << proposer.name << " chosen index is " << chosen << " with prob " << probs[chosen] << endl;
+//         }
+//     }
+    game.proposals.push_back(proposer.proposalSpace[chosen]);
     return make_pair(proposer.name, proposer.proposalSpace[chosen]);
 }
 
@@ -154,7 +225,7 @@ void SoftmaxQ::testProposal()
 
 pair<CoalitionStructure, vector<Coalition>> SoftmaxQ::formationProcess()
 {
-    cout << "softmaxQ formationProcess " << endl;
+    // cout << "softmaxQ formationProcess " << endl;
     // record the coalition Structure!
     CoalitionStructure CS;
     pair<int, Proposal> proposer_and_proposal = proposalOutcome();

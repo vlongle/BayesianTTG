@@ -145,6 +145,11 @@ int selectAction(const VectorXd &probs, mt19937_64 &generator, uniform_real_dist
     int chosen = 0;
     double tmp_double = probs[0];
     double tmp = u(generator);
+// #pragma omp critical
+//     {
+//         cout << "selectAction tmp " << tmp << endl;
+//         cout << "prob \n " << probs << endl;
+//     }
     while (tmp_double < tmp && chosen < probs.size() - 1)
     {
         chosen++;
@@ -181,9 +186,3 @@ int getInvCount(int arr[], int n)
 
     return inv_count;
 }
-
-
-
-
-
-

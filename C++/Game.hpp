@@ -12,8 +12,9 @@ class Game
 {
 public:
     // task's threshold and reward should be proportional!
-    Game(int numPlayers, int numberOfWeights, vector<Task> &tasks, mt19937_64 &generator,
-         const vector<int> &agentWeights = vector<int>(), int minWeight = 1);
+    // don't share tasks and agentWeights so that we don't have parallel access!
+    Game(int numPlayers, int numberOfWeights, vector<Task> tasks, mt19937_64 &generator,
+         const vector<int> agentWeights = vector<int>(), int minWeight = 1);
     int numPlayers;
     int minWeight;
     int numberOfWeights;
@@ -21,13 +22,17 @@ public:
     double minReward;
     double maxReward;
 
+    vector<double> agentWeights; // vector of double for coding convenience
     vector<Agent> agents;
-    vector<Task> &tasks;
+    vector<Task> tasks;
     map<int, divisionRule> divisionRules; // key = coalition size,
     // value = all the simplex points
 
     // key = agent, value = ("yes"->1, "no"->0)
-    pair<double, map<int, int>> predictReponses(Agent &predictor, Proposal proposal, set<int> predictees = {});
+    pair<double, map<int, int>> predictReponses(Agent &predictor, Proposal &proposal, set<int> predictees = {});
+    pair<double, map<int, int>> predictReponsesDebug(Agent &predictor, Proposal &proposal, 
+     int trial,
+    set<int> predictees = {});
     // In Python, range(minWeight, maxWeight+1)
     vector<int> weightRange;
     double expectedCoalitionValue(Agent &predictor, Coalition coalition);
@@ -42,4 +47,12 @@ public:
     // given the reward, gives the next higher threshold. If this reward
     // is already the highest, then output 1000
     map<int, double> nextHigherThreshold;
+
+    // a hack to save a list of proposers quickly. Sorry not sorry.
+    vector<int> proposerList;
+    vector<Proposal> proposals;
+
+    VectorXd weightRangeVec;
+    double countCurrentAvgInversions();
+    double expectedSingletonValueDebug(Agent &predictor, int agentName);
 };

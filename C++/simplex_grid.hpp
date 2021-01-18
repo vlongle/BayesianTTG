@@ -1,3 +1,4 @@
+// source: https://people.sc.fsu.edu/~jburkardt/cpp_src/simplex_grid/simplex_grid.html
 #pragma once
 #include <string>
 using namespace std;

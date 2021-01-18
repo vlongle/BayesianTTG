@@ -17,4 +17,5 @@ public:
     pair<CoalitionStructure, vector<Coalition>> formationProcess();
     void updateBelief(vector<Coalition> &nonSingletonCoals);
      //virtual ~InformedBeliefAlgo(){};
+     void exploitSignal(double trustLevel);
 };

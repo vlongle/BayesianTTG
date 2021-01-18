@@ -2,8 +2,8 @@
 #include <functional>
 #include <algorithm>
 
-Game::Game(int numPlayers, int numberOfWeights, vector<Task> &tasks,
-           mt19937_64 &generator, const vector<int> &agentWeights, int minWeight) : weightRange(numberOfWeights),
+Game::Game(int numPlayers, int numberOfWeights, vector<Task> tasks,
+           mt19937_64 &generator, const vector<int> agentWeights, int minWeight) : weightRange(numberOfWeights),
                                                                                     tasks(tasks)
 {
 
@@ -40,6 +40,7 @@ Game::Game(int numPlayers, int numberOfWeights, vector<Task> &tasks,
     for (auto &agent : this->agents)
     {
         agent.initializeBelief(this->numPlayers, this->numberOfWeights, this->minWeight);
+        this->agentWeights.push_back(agent.weight);
     }
 
     // sort the tasks based on threshold (which also sort them based on
@@ -77,6 +78,10 @@ Game::Game(int numPlayers, int numberOfWeights, vector<Task> &tasks,
         agent.initializeProposalSpace(numPlayers, divisionRules);
     }
     iota(weightRange.begin(), weightRange.end(), minWeight);
+
+    weightRangeVec = VectorXd::LinSpaced(numberOfWeights, minWeight, maxWeight);
+    // debug
+    //cout << "game weighRangeVec\n " << weightRangeVec << endl;
 }
 
 double Game::evaluateCoalition(vector<int> weights)
@@ -117,11 +122,9 @@ double Game::expectedCoalitionValue(Agent &predictor, Coalition coalition)
     {
         double prob = 1.0; // probability of this weight config according
         // to predictor's belief
-        int i = 0;
-        for (int agentName : coalition)
+        for (auto [i, agentName] : enumerate(coalition))
         {
             prob *= predictor.belief(agentName, weights[i] - minWeight);
-            i++;
         }
         ret += prob * evaluateCoalition(weights);
     }
@@ -141,21 +144,38 @@ double Game::expectedSingletonValue(Agent &predictor, int agentName)
     //<< " is " << ret << endl;
     return ret;
 }
+
+
+double Game::expectedSingletonValueDebug(Agent &predictor, int agentName)
+{
+    double ret = 0;
+    cout << "singletonValue of " << agentName << " predicted by " << predictor.name << endl;
+    for (int weight : weightRange)
+    {
+        cout << "singletonValue weight " << weight << " belief " << predictor.belief(agentName, weight - minWeight)
+        << " evaluateCoalition: " << evaluateCoalition({weight}) << endl;
+        ret += predictor.belief(agentName, weight - minWeight) * evaluateCoalition({weight});
+    }
+    //cout << "expectedSingletonValue of  " << agentName << " according to " << predictor.name
+    //<< " is " << ret << endl;
+    return ret;
+}
+
+
 // response: "yes" --> 1, "no" --> 0
-pair<double, map<int, int>> Game::predictReponses(Agent &predictor, Proposal proposal, set<int> predictees)
+pair<double, map<int, int>> Game::predictReponses(Agent &predictor, Proposal &proposal, set<int> predictees)
 {
     map<int, int> responses;
     double expectedCoalValue = expectedCoalitionValue(predictor, proposal.first);
-    int i = -1;
-    for (auto agentName : proposal.first)
+    for (auto [i, agentName] : enumerate(proposal.first))
     {
-        i++;
         if (predictees.size() > 0 && predictees.find(agentName) == predictees.end())
         {
             // this agent is NOT in the list of predictees!
             continue;
         }
         double gainJoining = expectedCoalValue * proposal.second[i];
+    
         double gainRefuse = expectedSingletonValue(predictor, agentName);
         //cout << "Predictor " << predictor.name << " for predictee " << agentName << " div " << proposal.second;
         //cout << "\n expectedCoalVal " << expectedCoalValue << " gainJoining " << gainJoining << " gainRefuse "
@@ -176,6 +196,48 @@ pair<double, map<int, int>> Game::predictReponses(Agent &predictor, Proposal pro
     return make_pair(expectedCoalValue, responses);
 }
 
+
+pair<double, map<int, int>> Game::predictReponsesDebug(Agent &predictor, Proposal &proposal, int trial, set<int> predictees)
+{
+    map<int, int> responses;
+    double expectedCoalValue = expectedCoalitionValue(predictor, proposal.first);
+    for (auto [i, agentName] : enumerate(proposal.first))
+    {
+        if (predictees.size() > 0 && predictees.find(agentName) == predictees.end())
+        {
+            // this agent is NOT in the list of predictees!
+            continue;
+        }
+        double gainJoining = expectedCoalValue * proposal.second[i];
+        double gainRefuse = expectedSingletonValue(predictor, agentName);
+        if (trial == 0){
+            gainRefuse = expectedSingletonValueDebug(predictor, agentName);
+           cout << "predictor " << predictor.name << " agent: " << agentName << "weight: " << agents[agentName].weight << " gainJoining " << gainJoining << " gainRefuse " << gainRefuse <<
+           " expectedCoalValue " << expectedCoalValue << " share " << proposal.second[i] << endl;
+
+           cout << "predictor's belief about agent " << predictor.belief.row(agentName) << endl;
+        }
+        //cout << "Predictor " << predictor.name << " for predictee " << agentName << " div " << proposal.second;
+        //cout << "\n expectedCoalVal " << expectedCoalValue << " gainJoining " << gainJoining << " gainRefuse "
+        //<< gainRefuse << endl;
+        if (gainJoining >= gainRefuse)
+        {
+            responses.insert(pair<int, int>(agentName, 1));
+        }
+        else
+        {
+            responses.insert(pair<int, int>(agentName, 0));
+        }
+
+        //cout << "predictResponse by " << predictor.name << " for " << agentName
+        //<< " for proposal " << proposal.second << " is " << responses[agentName] << endl;
+    }
+    //cout << "predictResponses done!" << endl;
+    return make_pair(expectedCoalValue, responses);
+}
+
+
+
 double Game::evaluateCoalition(Coalition &coalition)
 {
     vector<int> weights = {};
@@ -192,12 +254,25 @@ void Game::updateWealth(CoalitionStructure &CS)
         Coalition &coalition = get<0>(coalitionInfo);
         VectorXd &div = get<1>(coalitionInfo);
         double coalitionValue = get<2>(coalitionInfo);
-        int i = 0;
-        for (int agentName : coalition)
+        for (auto [i, agentName] : enumerate(coalition))
         {
             auto &agent = agents[agentName];
             agent.currentWealth += div[i] * coalitionValue;
-            i++;
         }
     }
+}
+
+// for each agent, count the inversions of the mean weight prediction
+// compared to the actual sorting of players' weight
+double Game::countCurrentAvgInversions()
+{
+    double  totInversions = 0;
+    for (auto &agent : agents)
+    {
+        VectorXd agentMeanPrediction = agent.belief * weightRangeVec;
+        vector<double> agentMeanPred(agentMeanPrediction.data(), agentMeanPrediction.data() +
+                                                                     agentMeanPrediction.size());
+        totInversions += countInversions(agentWeights, agentMeanPred);
+    }
+    return totInversions/numPlayers;
 }

@@ -48,8 +48,7 @@ void VPIAlgo::populateAgentValuesAndQVs(Agent &agent)
     }
 
     double bestReward = numeric_limits<double>::min();
-    int i = 0;
-    for (auto &proposal : agent.proposalSpace)
+    for (auto [i, proposal] : enumerate(agent.proposalSpace))
     {
         pair<double, map<int, int>> val_and_responses = game.predictReponses(agent, proposal);
         // proposerValue = coalitionValue * proposerShare
@@ -85,7 +84,6 @@ void VPIAlgo::populateAgentValuesAndQVs(Agent &agent)
         {
             bestProposals.insert(i);
         }
-        i++;
     }
     agent.QVs = agent.proposalValues + calculateVPIs(agent, bestProposals, bestValue,
                                                      secondBestValue);
@@ -201,12 +199,10 @@ VectorXd VPIAlgo::calculateVPIs(Agent &proposer, set<int> bestProposals, double 
         double VPI = 0;
         for (auto &weights : CartesianSelfProduct(game.weightRange, coalition.size()))
         {
-            int i = 0;
             double prob = 1.0;
-            for (int agentName : coalition)
+            for (auto [i, agentName] : enumerate(coalition))
             {
                 prob *= proposer.belief(agentName, weights[i] - game.minWeight);
-                i++;
             }
 
             // TODO: change this to take into account rejection!

@@ -6,60 +6,82 @@ VectorXd SignalSoftmaxQ::calculateRegularizer(Agent &proposer)
     VectorXd regularizer(proposer.proposalSpace.size());
     for (auto [i, proposal] : enumerate(proposer.proposalSpace))
     {
-        int invCount = countInversionOfProposal(proposer, proposal);
-        double regularizeTerm = (1 / (1 + invCount)) * lambda;
+        int invCount = countInversionOfProposal(proposal);
+        double regularizeTerm = (1.0 / (1 + invCount)) * lambda;
         regularizer(i) = regularizeTerm;
 
         // debug
-        cout << "===========================" << endl;
-        cout << ">> coalition " << endl;
-        printSet(proposal.first);
-        cout << "\n >> divisionRule" << endl;
-        cout << proposal.second << endl;
-        cout << "regularizer: " << regularizeTerm << endl;
-        cout << "===========================" << endl;
+        // cout << "===========================" << endl;
+        // cout << ">> coalition " << endl;
+        // printSet(proposal.first);
+        // cout << "\n >> divisionRule" << endl;
+        // cout << proposal.second << endl;
+        // cout << "regularizer: " << regularizeTerm << endl;
+        // cout << "===========================" << endl;
     }
     return regularizer;
 }
 
-double SignalSoftmaxQ::countInversionOfProposal(Agent &proposer, Proposal &proposal)
-{
-    std::vector<std::pair<int, double>> zipped;
-    zip(proposal, zipped);
-    // sort zipped array based on the division rule
-    // sorting in ascending order
-    sort(begin(zipped), end(zipped),
-         [&](const auto &a, const auto &b) {
-             return a.second < b.second;
-         });
+// TODO: carefully handle equality!!!
+// LEGACY NOW since it doesn't deal with equality case
+// this code is O(n log n)
+//double SignalSoftmaxQ::countInversionOfProposal(Proposal &proposal)
+//{
+//    std::vector<std::pair<int, double>> zipped;
+//    zip(proposal, zipped);
+//    // sort zipped array based on the division rule
+//    // sorting in ascending order
+//    sort(begin(zipped), end(zipped),
+//         [&](const auto &a, const auto &b) {
+//             return a.second < b.second;
+//         });
+//
+//    // we now have coalition sorted by division share
+//    VectorXd coalitionSortedByShare(proposal.first.size());
+//    VectorXd sortedDiv(proposal.second.size());
+//    unzip(zipped, coalitionSortedByShare, sortedDiv);
+//
+//    // now sort the coalition based on public signal
+//
+//    vector<int> coalitionSortedBySignal = set2vec(proposal.first);
+//    sort(begin(coalitionSortedBySignal), end(coalitionSortedBySignal),
+//         [&](const auto &a, const auto &b) {
+//             return game.agents[a].currentWealth < game.agents[b].currentWealth;
+//         });
+//
+//    map<int, int> agentToRankBySignal;
+//
+//    for (auto [i, agentName] : enumerate(coalitionSortedBySignal))
+//    {
+//        agentToRankBySignal[agentName] = i;
+//    }
+//
+//    // index = playerName of the player sorted by share;
+//    // value = that player's rank sorted by signal
+//    // this array stores how sorting by share differs from sorting by signal (ground-truth)
+//
+//    int inversionArray[coalitionSortedBySignal.size()];
+//    for (int i = 0; i < coalitionSortedBySignal.size(); i++)
+//    {
+//        inversionArray[i] = agentToRankBySignal[coalitionSortedByShare[i]];
+//    }
+//
+//    return getInvCount(inversionArray, coalitionSortedBySignal.size());
+//}
 
-    // we now have coalition sorted by division share
-    VectorXd coalitionSortedByShare(proposal.first.size());
-    VectorXd sortedDiv(proposal.second.size());
-    unzip(zipped, coalitionSortedByShare, sortedDiv);
 
-    // now sort the coalition based on public signal
+// O(N^2) but it is correct (do what I design)
+double SignalSoftmaxQ::countInversionOfProposal(Proposal &proposal){
+    
+    Coalition& coalition = proposal.first;
+    VectorXd& div = proposal.second;
+    vector<double> divVector(div.data(), div.data() + div.size());
 
-    vector<int> coalitionSortedBySignal = set2vec(proposal.first);
-    sort(begin(coalitionSortedBySignal), end(coalitionSortedBySignal),
-         [&](const auto &a, const auto &b) {
-             return game.agents[a].currentWealth < game.agents[b].currentWealth;
-         });
-
-    map<int, int> agentToRankBySignal;
-
-    for (auto [i, agentName] : enumerate(coalitionSortedBySignal))
-    {
-        agentToRankBySignal[agentName] = i;
+    vector<double> publicSignal;
+    for (int agentName : coalition){
+        publicSignal.push_back(game.agents[agentName].currentWealth);
     }
-
-    int inversionArray[coalitionSortedBySignal.size()];
-    for (int i = 0; i < coalitionSortedBySignal.size(); i++)
-    {
-        inversionArray[i] = agentToRankBySignal[coalitionSortedByShare[i]];
-    }
-
-    return getInvCount(inversionArray, coalitionSortedBySignal.size());
+    return countInversions(publicSignal, divVector); 
 }
 
 // select proposals based on softmax plus a regularizer term
@@ -135,7 +157,7 @@ pair<int, Proposal> SignalSoftmaxQ::proposalOutcome()
 // verbatim from SoftmaxQ
 pair<CoalitionStructure, vector<Coalition>> SignalSoftmaxQ::formationProcess()
 {
-    cout << "signalSoftmaxQ formationProcess " << endl;
+    // cout << "signalSoftmaxQ formationProcess " << endl;
     // record the coalition Structure!
     CoalitionStructure CS;
     pair<int, Proposal> proposer_and_proposal = proposalOutcome();

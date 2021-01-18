@@ -131,3 +131,39 @@ vector<a> set2vec(set<a> s)
     std::copy(s.begin(), s.end(), v.begin());
     return v;
 }
+
+
+template <typename a>
+set<a> vec2set(vector<a> v)
+{
+    std::set<a> s(v.begin(), v.end());
+    return s;
+}
+
+
+template <typename a>
+int countInversions(vector<a> groundTruth, vector<a> candidate){
+    if (groundTruth.size() != candidate.size()){
+        cout << "CRITICAL!!!!! Something wrong in countInversion() function" << endl;
+        return 0;
+    }
+    
+    int n = groundTruth.size();
+    int inversions = 0;
+    for (int i=0; i < n-1; i++){
+        for (int j=i+1; j<n; j++){
+        
+            if (groundTruth[i] > groundTruth[j] && candidate[i] <= candidate[j]){
+                inversions++;
+            }
+            else if (groundTruth[i] < groundTruth[j] && candidate[i] >= candidate[j]){
+                inversions++;
+            }
+            else if (groundTruth[i] == groundTruth[j] && candidate[i] != candidate[j]){
+                inversions++;
+            }
+        }
+    }
+
+    return inversions;
+}

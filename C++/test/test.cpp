@@ -2,6 +2,7 @@
 #include <set>
 #include <vector>
 #include "Eigen/Dense"
+#include <fstream>
 using namespace std;
 using namespace Eigen;
 
@@ -49,7 +50,48 @@ class Derived: public Base{
             cout << "derived outcome" << endl;
         }
 };
+
+
+template <typename a>
+int countInversions(vector<a> groundTruth, vector<a> candidate){
+    if (groundTruth.size() != candidate.size()){
+                cout << "CRITICAL!!!!! Something wrong in countInversion() function" << endl;
+                        return 0;
+                            
+    }
+
+        int n = groundTruth.size();
+            int inversions = 0;
+            for (int i=0; i < n-1; i++){
+                for (int j=i+1; j<n; j++){
+
+                    if (groundTruth[i] > groundTruth[j] && candidate[i] <= candidate[j]){
+                                        inversions++;
+                                                    
+                    }
+                    else if (groundTruth[i] < groundTruth[j] && candidate[i] >= candidate[j]){
+                                        inversions++;
+                                                    
+                    }
+                    else if (groundTruth[i] == groundTruth[j] && candidate[i] != candidate[j]){
+                                        inversions++;
+                                                    
+                    }
+                            
+                }
+                    
+            }
+
+                return inversions;
+
+}
+
 int main(){
-   Derived d;
-   d.formation();
+    VectorXd v(2);
+    v << 1,2;
+    cout << v << endl;
+
+    ofstream out("test.txt");
+    out << v;
+        out.close();
 }

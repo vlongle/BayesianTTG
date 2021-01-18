@@ -1,0 +1,1400 @@
+=============================================>
+softmaxQ proposer is 0
+=============================================>
+softmaxQ proposer is 1
+proposalValues of 0
+    1
+    0
+0.445
+ 0.89
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    0
+0.445
+ 0.89
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+    1
+printing proposalSpace 
+>> coalition 
+0 , 
+ >> divisionRule
+1
+>> coalition 
+0 , 2 , 
+ >> divisionRule
+0
+1
+>> coalition 
+0 , 2 , 
+ >> divisionRule
+0.1
+0.9
+>> coalition 
+0 , 2 , 
+ >> divisionRule
+0.2
+0.8
+>> coalition 
+0 , 2 , 
+ >> divisionRule
+0.3
+0.7
+>> coalition 
+0 , 2 , 
+ >> divisionRule
+0.4
+0.6
+>> coalition 
+0 , 2 , 
+ >> divisionRule
+0.5
+0.5
+>> coalition 
+0 , 2 , 
+ >> divisionRule
+0.6
+0.4
+>> coalition 
+0 , 2 , 
+ >> divisionRule
+0.7
+0.3
+>> coalition 
+0 , 2 , 
+ >> divisionRule
+0.8
+0.2
+>> coalition 
+0 , 2 , 
+ >> divisionRule
+0.9
+0.1
+>> coalition 
+0 , 2 , 
+ >> divisionRule
+1
+0
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0
+1
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.1
+0.9
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.2
+0.8
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.3
+0.7
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.4
+0.6
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.5
+0.5
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.6
+0.4
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.7
+0.3
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.8
+0.2
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.9
+0.1
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+1
+0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0
+0
+1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.1
+0.9
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.2
+0.8
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.3
+0.7
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.4
+0.6
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.5
+0.5
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.6
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.7
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.8
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.9
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0
+1
+0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+  0
+0.9
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.1
+0.8
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.2
+0.7
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.3
+0.6
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.4
+0.5
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.5
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.6
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.7
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.8
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.9
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+  0
+0.8
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.1
+0.7
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.2
+0.6
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.3
+0.5
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.4
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.5
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.6
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.7
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.8
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+  0
+0.7
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.1
+0.6
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.2
+0.5
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.3
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.4
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.5
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.6
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.7
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+  0
+0.6
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+0.1
+0.5
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+0.2
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+0.3
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+0.4
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+0.5
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+0.6
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.5
+  0
+0.5
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.5
+0.1
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.5
+0.2
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.5
+0.3
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.5
+0.4
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.5
+0.5
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.6
+  0
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.6
+0.1
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.6
+0.2
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.6
+0.3
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.6
+0.4
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.7
+  0
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.7
+0.1
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.7
+0.2
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.7
+0.3
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.8
+  0
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.8
+0.1
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.8
+0.2
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.9
+  0
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.9
+0.1
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+1
+0
+0
+=======================>
+proposalValues of 1
+ 5.9
+   0
+0.59
+1.18
+1.77
+2.36
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+2.36
+1.77
+1.18
+0.59
+   0
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+ 5.9
+printing proposalSpace 
+>> coalition 
+1 , 
+ >> divisionRule
+1
+>> coalition 
+1 , 2 , 
+ >> divisionRule
+0
+1
+>> coalition 
+1 , 2 , 
+ >> divisionRule
+0.1
+0.9
+>> coalition 
+1 , 2 , 
+ >> divisionRule
+0.2
+0.8
+>> coalition 
+1 , 2 , 
+ >> divisionRule
+0.3
+0.7
+>> coalition 
+1 , 2 , 
+ >> divisionRule
+0.4
+0.6
+>> coalition 
+1 , 2 , 
+ >> divisionRule
+0.5
+0.5
+>> coalition 
+1 , 2 , 
+ >> divisionRule
+0.6
+0.4
+>> coalition 
+1 , 2 , 
+ >> divisionRule
+0.7
+0.3
+>> coalition 
+1 , 2 , 
+ >> divisionRule
+0.8
+0.2
+>> coalition 
+1 , 2 , 
+ >> divisionRule
+0.9
+0.1
+>> coalition 
+1 , 2 , 
+ >> divisionRule
+1
+0
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0
+1
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.1
+0.9
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.2
+0.8
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.3
+0.7
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.4
+0.6
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.5
+0.5
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.6
+0.4
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.7
+0.3
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.8
+0.2
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+0.9
+0.1
+>> coalition 
+0 , 1 , 
+ >> divisionRule
+1
+0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0
+0
+1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.1
+0.9
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.2
+0.8
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.3
+0.7
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.4
+0.6
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.5
+0.5
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.6
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.7
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.8
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+  0
+0.9
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0
+1
+0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+  0
+0.9
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.1
+0.8
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.2
+0.7
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.3
+0.6
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.4
+0.5
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.5
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.6
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.7
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.8
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.1
+0.9
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+  0
+0.8
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.1
+0.7
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.2
+0.6
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.3
+0.5
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.4
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.5
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.6
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.7
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.2
+0.8
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+  0
+0.7
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.1
+0.6
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.2
+0.5
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.3
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.4
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.5
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.6
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.3
+0.7
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+  0
+0.6
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+0.1
+0.5
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+0.2
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+0.3
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+0.4
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+0.5
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.4
+0.6
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.5
+  0
+0.5
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.5
+0.1
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.5
+0.2
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.5
+0.3
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.5
+0.4
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.5
+0.5
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.6
+  0
+0.4
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.6
+0.1
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.6
+0.2
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.6
+0.3
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.6
+0.4
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.7
+  0
+0.3
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.7
+0.1
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.7
+0.2
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.7
+0.3
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.8
+  0
+0.2
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.8
+0.1
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.8
+0.2
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.9
+  0
+0.1
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+0.9
+0.1
+  0
+>> coalition 
+0 , 1 , 2 , 
+ >> divisionRule
+1
+0
+0
+=======================>
+selectAction tmp 0.542285
+prob 
+   0.0126385
+3.46224e-05
+6.24585e-05
+0.000112674
+0.000203263
+0.000366685
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+0.000366685
+0.000203263
+0.000112674
+6.24585e-05
+3.46224e-05
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+  0.0126385
+chosen index is 52 with prob 0.0126385
+selectAction tmp 0.350898
+prob 
+  0.0115373
+0.00424433
+0.00662323
+ 0.0103355
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+0.00424433
+0.00662323
+ 0.0103355
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+ 0.0115373
+chosen index is 32 with prob 0.0115373
+   wealth 1
+ wealth 5.9
+ wealth 1
+=============================================>
+ wealth 1
+ wealth 1
+ wealth 3
+=============================================>
