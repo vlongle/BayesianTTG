@@ -21,7 +21,7 @@ using namespace std::chrono;
 using namespace std;
 
 float SEED = 0;
-int numSteps = 20;
+int numSteps = 100;
 
 double calculateCumulativePayoff(vector<CoalitionStructure> outcomes)
 {
@@ -54,10 +54,8 @@ runAlgorithm(Algo &algo, int numSteps, bool exploitSignal = false,
     // tensor since vector was giving weird segfault
     Tensor<double, 3> beliefs(n, n, numSteps);
 
-    // cout << "=============================================>" << endl;
-    //maybe not necessary if each algorithm constructed its own game
-    //We need that for parallelization anyway!
-    //algo.game.reset_belief();
+    // TODO: Resetting belief might not be needed
+    // algo.game.reset_belief();
     for (int t = 0; t < numSteps; t++)
     {
         //if (t % 10 == 0)
@@ -95,13 +93,6 @@ runAlgorithm(Algo &algo, int numSteps, bool exploitSignal = false,
             }
         }
 
-        // debug!
-        //for (auto &agent : algo.game.agents)
-        //{
-        //    cout << "agent " << agent.name << " belief " << endl;
-        //    cout << agent.belief << endl;
-        //}
-        //cout << "===================================" << endl;
         avgInversions.push_back(algo.game.countCurrentAvgInversions());
     }
 
@@ -188,7 +179,7 @@ template <typename a>
 void writeVector(vector<a> v, string filename)
 {
     // debug
-    ofstream out(filename, ios::app);
+    ofstream out(filename);
     for (a x : v)
     {
         out << x << '\n';
@@ -199,7 +190,7 @@ void writeVector(vector<a> v, string filename)
 void writeProposals(vector<Proposal> proposals, string filename)
 {
     // debug
-    ofstream out(filename, ios::app);
+    ofstream out(filename);
     out << "\n\n";
 
     for (auto &proposal : proposals)
@@ -297,34 +288,37 @@ void writeProposals(vector<Proposal> proposals, string filename)
 //     //writeOutcomes(beliefOutcomes.second, "./data/cpp_softmax_outcomes_exploit.txt");
 //     writeOutcomes(get<1>(beliefOutcomes), filename);
 // }
-// void bulkExperimentSoftmax(int numTrials, int numPlayers, int numWeights, vector<int> &agentWeights, vector<Task> &tasks)
-// {
-// // #pragma omp parallel for
-//     for (int i = 0; i < numTrials; i++)
-//     {
-//         mt19937_64 generator(i);
-//         Game game(numPlayers, numWeights, tasks, generator, agentWeights);
-//         SoftmaxQ softmaxQ(game, generator);
-//         auto beliefOutcomes = runAlgorithm(softmaxQ, numSteps);
-//         writeOutcomes(get<1>(beliefOutcomes), "./data/softmax/cpp_softmax_outcomes_" + to_string(i) + ".txt");
-//         writeBeliefs(get<0>(beliefOutcomes), "./data/softmax/cpp_softmax_beliefs_" + to_string(i) + ".txt", numSteps, numPlayers);
-//         writeWealth(get<2>(beliefOutcomes), "./data/softmax/cpp_softmax_wealth_" + to_string(i) + ".txt");
-//         writeVector(game.proposerList, "./data/softmax/cpp_softmax_proposerList_" + to_string(i) + ".txt");
-//         writeVector(get<3>(beliefOutcomes), "./data/softmax/cpp_softmax_inversions_" + to_string(i) + ".txt");
-//         writeVector(game.agentWeights, "./data/softmax/cpp_softmax_agentWeights_" + to_string(i) + ".txt");
-//     }
-// }
+
+void bulkExperimentSoftmax(int numTrials, int numPlayers, int numWeights, vector<int> &agentWeights, vector<Task> &tasks,
+                           string prefix = "./data/softmax/cpp_softmax")
+{
+#pragma omp parallel for
+    for (int i = 0; i < numTrials; i++)
+    {
+        mt19937_64 generator(i);
+        Game game(numPlayers, numWeights, tasks, generator, agentWeights);
+        SoftmaxQ softmaxQ(game, generator);
+        auto beliefOutcomes = runAlgorithm(softmaxQ, numSteps);
+        writeOutcomes(get<1>(beliefOutcomes), prefix + "_outcomes_" + to_string(i) + ".txt");
+        writeBeliefs(get<0>(beliefOutcomes), prefix + "_beliefs_" + to_string(i) + ".txt", numSteps, numPlayers);
+        writeWealth(get<2>(beliefOutcomes), prefix + "_wealth_" + to_string(i) + ".txt");
+        writeVector(game.proposerList, prefix + "_proposerList_" + to_string(i) + ".txt");
+        writeVector(get<3>(beliefOutcomes), prefix + "_inversions_" + to_string(i) + ".txt");
+        writeVector(game.agentWeights, prefix + "_agentWeights_" + to_string(i) + ".txt");
+        writeProposals(game.proposals, prefix + "_proposals_" + to_string(i) + ".txt");
+    }
+}
 
 void bulkExperimentBeliefInjection(int numTrials, int numPlayers, int numWeights, vector<int> &agentWeights, vector<Task> &tasks,
                                    double trustLevel,
                                    string prefix = "./data/injection/cpp_injection")
 {
 #pragma omp parallel for
-    for (int trial = 0; trial < numTrials; trial++)
+    for (int i = 0; i < numTrials; i++)
     {
-        mt19937_64 generator(trial);
+        mt19937_64 generator(i);
         Game game(numPlayers, numWeights, tasks, generator, agentWeights);
-        SoftmaxQ softmaxQ(game, generator, trial);
+        SoftmaxQ softmaxQ(game, generator);
 
         auto beliefOutcomes = runAlgorithm(softmaxQ, numSteps, true, trustLevel);
         writeOutcomes(get<1>(beliefOutcomes), prefix + "_outcomes_" + to_string(i) + ".txt");
@@ -333,41 +327,24 @@ void bulkExperimentBeliefInjection(int numTrials, int numPlayers, int numWeights
         writeVector(game.proposerList, prefix + "_proposerList_" + to_string(i) + ".txt");
         writeVector(get<3>(beliefOutcomes), prefix + "_inversions_" + to_string(i) + ".txt");
         writeVector(game.agentWeights, prefix + "_agentWeights_" + to_string(i) + ".txt");
-        writeProposals(game.proposals, prefix + "_proposals_" + to_string(trial) + ".txt");
-
-        // if (trial == 0)
-        // {
-        //     writeProposals(game.proposals, prefix + "_proposals_" + to_string(trial) + ".txt");
-        //     writeVector(game.proposerList, prefix + "_proposerList_" + to_string(trial) + ".txt");
-        //     # pragma omp critical
-        //     {
-        //     for (auto &agent : game.agents){
-        //         cout << " agent " << agent.name << " wealth " << agent.currentWealth << endl;
-        //     }
-        //     }
-        // }
-        // #pragma omp critical
-        //         {
-        //             cout << "SEED " << i << " CUM PAYOFF : " << calculateCumulativePayoff(get<1>(beliefOutcomes)) << endl;
-        //             cout << "game " << i << " generator " << &generator << " game " << &game << " algo " << &softmaxQ << endl;
-        //         }
+        writeProposals(game.proposals, prefix + "_proposals_" + to_string(i) + ".txt");
     }
 }
 
-// void softmaxBulkExperiment()
-// {
-//     vector<Task> tasks = {
-//         {1, 1},
-//         {4, 5.9},
-//         {2, 3},
-//     };
-//     int numPlayers = 3;
-//     int numWeights = 4;
-//     // deliberately give fewer agentWeights than required to trigger random weight initialization!
-//     vector<int> agentWeights = {};
-//     int numTrials = 1;
-//     bulkExperimentSoftmax(numTrials, numPlayers, numWeights, agentWeights, tasks);
-// }
+void softmaxBulkExperiment(string prefix = "./data/softmax/cpp_softmax")
+{
+    vector<Task> tasks = {
+        {1, 1},
+        {4, 5.9},
+        {2, 3},
+    };
+    int numPlayers = 3;
+    int numWeights = 4;
+    // deliberately give fewer agentWeights than required to trigger random weight initialization!
+    vector<int> agentWeights = {};
+    int numTrials = 30;
+    bulkExperimentSoftmax(numTrials, numPlayers, numWeights, agentWeights, tasks, prefix);
+}
 
 void beliefInjectionBulkExperiment(double trustLevel,
                                    int numTrials = 1, string prefix = "./data/injection/cpp_injection")
@@ -624,6 +601,16 @@ void OneSmallInformedBeliefExperiment()
 //     writeVector(game.agentWeights, "./caseStudyData/cpp_softmax_agentWeights_small.txt");
 // }
 
+void figureSamplePaperv3()
+{
+    // softmaxBulkExperiment("./data_3agents/softmax/cpp_softmax");
+    //beliefInjectionBulkExperiment(0.1, 30, "./data_3agents/0.1_injection/cpp_injection");
+    beliefInjectionBulkExperiment(0.5, 30, "./data_3agents/0.5_injection/cpp_injection");
+    beliefInjectionBulkExperiment(1.0, 30, "./data_3agents/1.0_injection/cpp_injection");
+    beliefInjectionBulkExperiment(5.0, 30, "./data_3agents/5.0_injection/cpp_injection");
+    beliefInjectionBulkExperiment(10.0, 30, "./data_3agents/10.0_injection/cpp_injection");
+    beliefInjectionBulkExperiment(20.0, 30, "./data_3agents/20.0_injection/cpp_injection");
+}
 int main()
 {
     //OneSmallInformedBeliefExperiment();
@@ -632,5 +619,7 @@ int main()
     // softmaxBulkExperiment();
     // OneSmallExploitSoftmaxExperiment();
     // OneSmallSoftmaxLimitingBeliefExperiment();
-    beliefInjectionBulkExperiment(0.1, 30, "./data_3agents/injection");
+
+    // beliefInjectionBulkExperiment(0.1, 30, "./data_3agents/injection");
+    figureSamplePaperv3();
 }

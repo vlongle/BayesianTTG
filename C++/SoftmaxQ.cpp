@@ -6,10 +6,6 @@ pair<int, Proposal> SoftmaxQ::proposalOutcome()
     Agent &proposer = game.agents[distribution(generator)];
     game.proposerList.push_back(proposer.name);
 
-    // if (seed == 0)
-    // {
-    //     cout << "softmaxQ proposer is " << proposer.name << endl;
-    // }
 
     int numProposals = proposer.proposalSpace.size();
 
@@ -21,9 +17,9 @@ pair<int, Proposal> SoftmaxQ::proposalOutcome()
     //proposer.printProposalSpace();
     // only compute bestProposals again if my belief has changed!
 
-    // !!debug
-    double bestReward = numeric_limits<double>::min();
-    vector<Proposal> bestProposals;
+    // !!debug bestProposals is not needed!
+    //double bestReward = numeric_limits<double>::min();
+    //vector<Proposal> bestProposals;
 
     if (proposer.beliefChanged || proposer.proposalValues.size() == 0)
     {
@@ -37,7 +33,7 @@ pair<int, Proposal> SoftmaxQ::proposalOutcome()
         // TODO: BUG SOMEWHERE HERE!!!!! PROPOSALVALUE CALCULATED WRONG SOMETIMES!
         for (auto [i, proposal] : enumerate(proposer.proposalSpace))
         {
-            pair<double, map<int, int>> val_and_responses = game.predictReponsesDebug(proposer, proposal, seed);
+            pair<double, map<int, int>> val_and_responses = game.predictReponses(proposer, proposal);
             // proposerValue = coalitionValue * proposerShare
             double proposalValue = (val_and_responses.first) * proposal.second[distance(proposal.first.begin(),
                                                                                         proposal.first.find(proposer.name))];
@@ -56,17 +52,6 @@ pair<int, Proposal> SoftmaxQ::proposalOutcome()
                 proposalValue = game.evaluateCoalition({proposer.weight});
             }
             proposer.proposalValues(i) = proposalValue;
-            // if (seed == 0)
-            // {
-            //     cout << "===============>\n proposal: " << endl;
-            //     printSet(proposal.first);
-            //     cout << "\n " << proposal.second << endl;
-            //     cout << " agreement? " << agreement << " proposalValue: " << proposalValue << endl;
-            //     for (auto const &res: responses){
-            //         cout << "agent: " << res.first << " responses: " << res.second << endl;
-            //     }
-            //     cout << "==========>\n";
-            // }
 
             // // debug
             // cout << "===========================" << endl;
@@ -87,53 +72,16 @@ pair<int, Proposal> SoftmaxQ::proposalOutcome()
             //     bestProposals.push_back(proposal);
             // }
         }
-
-        proposer.bestProposals = bestProposals;
+        // proposer.bestProposals = bestProposals;
     }
-
-    // cout << "\n \n >>>>>> BEST PROPOSAL with reward " << bestReward << endl;
-    // // debug
-    // for (auto &proposal : proposer.bestProposals)
-    // {
-    //     cout << "===========================" << endl;
-    //     cout << ">> coalition " << endl;
-    //     printSet(proposal.first);
-    //     cout << "\n >> divisionRule" << endl;
-    //     cout << proposal.second << endl;
-    //     cout << "===========================" << endl;
-    // }
+    
 
     //cout << ">> PROPOSER " << proposer.name << " proposalValues:" << proposer.proposalValues << endl;
     //cout << "proposalValues:" << proposer.proposalValues << endl;
     VectorXd probs = softmax(proposer.proposalValues);
-// #pragma omp critical
-//     {
-//         if (seed == 0)
-//         {
-//             cout << "proposalValues of " << proposer.name << "\n"
-//                  << proposer.proposalValues << endl;
-//             cout << "prob\n"
-//                  << probs << endl;
-//             cout << "printing proposalSpace " << endl;
-//             proposer.printProposalSpace();
-//         }
-//     }
-    //cout << "softmax " << probs << endl;
-    //cout << "softmax probs:" << probs << endl;
-    //cout << "softmax sum :" << probs.sum() << endl;
+
 
     int chosen = selectAction(probs, generator, u);
-
-//cout << ">> PROPOSER : " << proposer.name << " CHOOSE " << endl;
-//printSet(proposer.proposalSpace[chosen].first);
-//cout << "\n" << proposer.proposalSpace[chosen].second << endl;
-// #pragma omp critical
-//     {
-//         if (seed == 0)
-//         {
-//             cout << " seed " << seed << "| proposer " << proposer.name << " chosen index is " << chosen << " with prob " << probs[chosen] << endl;
-//         }
-//     }
     game.proposals.push_back(proposer.proposalSpace[chosen]);
     return make_pair(proposer.name, proposer.proposalSpace[chosen]);
 }

@@ -30,9 +30,6 @@ public:
 
     // key = agent, value = ("yes"->1, "no"->0)
     pair<double, map<int, int>> predictReponses(Agent &predictor, Proposal &proposal, set<int> predictees = {});
-    pair<double, map<int, int>> predictReponsesDebug(Agent &predictor, Proposal &proposal, 
-     int trial,
-    set<int> predictees = {});
     // In Python, range(minWeight, maxWeight+1)
     vector<int> weightRange;
     double expectedCoalitionValue(Agent &predictor, Coalition coalition);
@@ -54,5 +51,4 @@ public:
 
     VectorXd weightRangeVec;
     double countCurrentAvgInversions();
-    double expectedSingletonValueDebug(Agent &predictor, int agentName);
 };
