@@ -24,5 +24,6 @@
         "initializer_list": "cpp",
         "iosfwd": "cpp",
         "chrono": "cpp"
-    }
+    },
+    "git.ignoreLimitWarning": true
 }

@@ -217,3 +217,17 @@ double Game::countCurrentAvgInversions()
     }
     return totInversions / numPlayers;
 }
+
+
+// same as countCurrentAvgInversion except here the candidate is NOT agent's mean-prediction but the 
+// wealth signal.
+double Game::computeCurrentSignalFidelity()
+{
+    vector<double> currentSignal;
+    for (auto &agent : agents){
+        currentSignal.push_back(agent.currentWealth);
+    }
+
+    return countInversions(agentWeights, currentSignal);
+}
+

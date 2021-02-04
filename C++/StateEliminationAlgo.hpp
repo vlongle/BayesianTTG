@@ -88,6 +88,12 @@ public:
                 {
                     continue;
                 }
+                // debug cout 
+                // cout << "agent " << agent.name << " weight " << agent.weight << " wealth "
+                // << agent.currentWealth <<  
+                // " otherAgent " << otherAgent.name << " weight "
+                // << otherAgent.weight << " wealth " << otherAgent.currentWealth <<endl;
+
                 double weightGuess = (agent.weight) * (otherAgent.currentWealth / agent.currentWealth);
                 // cout << "exploitSignal agent " << agent.name << " guess about agent " << otherAgent.name <<" weight is "
                 // << weightGuess << endl;
@@ -97,8 +103,12 @@ public:
                     //cout << "gaussian pdf " << GaussianPdf << endl;
                     agent.belief(otherAgent.name, i) *= GaussianPdf;
                 }
+
+                // debug cout
+                //cout << "exploitSignal agent " << agent.name << " belief about " << otherAgent.name << " unnormalized " <<agent.belief.row(otherAgent.name)  << endl;
                 // normalize row to 1.0
                 agent.belief.row(otherAgent.name) /= agent.belief.row(otherAgent.name).sum();
+                // cout << "exploitSignal agent " << agent.name << " belief about " << otherAgent.name << " normalized " <<agent.belief.row(otherAgent.name)  << "\n\n";
             }
         }
     }

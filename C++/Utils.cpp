@@ -141,6 +141,12 @@ int selectAction(const VectorXd &probs, mt19937_64 &generator, uniform_real_dist
     //     }
     // }
 
+    if (abs(probs.sum() - 1.0) > 0.00000001)
+    {
+        cout << "CRITICAL!! SOMETHING IS WRONG. selectionAction probs sum is " << probs.sum() << " != 1"
+        << " delta: " << abs(probs.sum() - 1.0) << endl; 
+        return 0;
+    }
     // Implementation by Yao Li
     int chosen = 0;
     double tmp_double = probs[0];
@@ -181,3 +187,4 @@ int getInvCount(int arr[], int n)
 
     return inv_count;
 }
+

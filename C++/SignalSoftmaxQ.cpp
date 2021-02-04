@@ -1,8 +1,25 @@
 #include "SignalSoftmaxQ.hpp"
 
+// O(N^2) but it is correct (do what I design)
+double SignalSoftmaxQ::countInversionOfProposal(Proposal &proposal)
+{
+
+    Coalition &coalition = proposal.first;
+    VectorXd &div = proposal.second;
+    vector<double> divVector(div.data(), div.data() + div.size());
+
+    vector<double> publicSignal;
+    for (int agentName : coalition)
+    {
+        publicSignal.push_back(game.agents[agentName].currentWealth);
+    }
+    return countInversions(publicSignal, divVector);
+}
+
 // calculate the regularizer term for each proposal in proposer's space
 VectorXd SignalSoftmaxQ::calculateRegularizer(Agent &proposer)
 {
+    // cout << "======> CALCULATE REGULARIZER =========>" << endl;
     VectorXd regularizer(proposer.proposalSpace.size());
     for (auto [i, proposal] : enumerate(proposer.proposalSpace))
     {
@@ -11,14 +28,15 @@ VectorXd SignalSoftmaxQ::calculateRegularizer(Agent &proposer)
         regularizer(i) = regularizeTerm;
 
         // debug
-        // cout << "===========================" << endl;
-        // cout << ">> coalition " << endl;
-        // printSet(proposal.first);
-        // cout << "\n >> divisionRule" << endl;
-        // cout << proposal.second << endl;
-        // cout << "regularizer: " << regularizeTerm << endl;
-        // cout << "===========================" << endl;
+        //  cout << "===========================" << endl;
+        //  cout << ">> coalition " << endl;
+        //  printSet(proposal.first);
+        //  cout << "\n >> divisionRule" << endl;
+        //  cout << proposal.second << endl;
+        //  cout << "regularizer: " << regularizeTerm << endl;
+        //  cout << "===========================" << endl;
     }
+    // cout << "==========>" << endl; 
     return regularizer;
 }
 
@@ -69,25 +87,11 @@ VectorXd SignalSoftmaxQ::calculateRegularizer(Agent &proposer)
 //    return getInvCount(inversionArray, coalitionSortedBySignal.size());
 //}
 
-
-// O(N^2) but it is correct (do what I design)
-double SignalSoftmaxQ::countInversionOfProposal(Proposal &proposal){
-    
-    Coalition& coalition = proposal.first;
-    VectorXd& div = proposal.second;
-    vector<double> divVector(div.data(), div.data() + div.size());
-
-    vector<double> publicSignal;
-    for (int agentName : coalition){
-        publicSignal.push_back(game.agents[agentName].currentWealth);
-    }
-    return countInversions(publicSignal, divVector); 
-}
-
 // select proposals based on softmax plus a regularizer term
 pair<int, Proposal> SignalSoftmaxQ::proposalOutcome()
 {
     Agent &proposer = game.agents[distribution(generator)];
+    game.proposerList.push_back(proposer.name);
 
     int numProposals = proposer.proposalSpace.size();
 
@@ -108,8 +112,7 @@ pair<int, Proposal> SignalSoftmaxQ::proposalOutcome()
 
         double bestReward = numeric_limits<double>::min();
         //cout << "size of proposal space: " << proposer.proposalSpace.size() << endl;
-        int i = 0;
-        for (auto &proposal : proposer.proposalSpace)
+        for (auto [i, proposal] : enumerate(proposer.proposalSpace))
         {
             pair<double, map<int, int>> val_and_responses = game.predictReponses(proposer, proposal);
             // proposerValue = coalitionValue * proposerShare
@@ -130,7 +133,6 @@ pair<int, Proposal> SignalSoftmaxQ::proposalOutcome()
                 proposalValue = game.evaluateCoalition({proposer.weight});
             }
             proposer.proposalValues(i) = proposalValue;
-            i++;
         }
     }
     // augment proposalValues now with regularizer term!
@@ -151,6 +153,9 @@ pair<int, Proposal> SignalSoftmaxQ::proposalOutcome()
     //printSet(proposer.proposalSpace[chosen].first);
     //cout << "\n" << proposer.proposalSpace[chosen].second << endl;
     //cout << "chosen index is " << chosen << " with prob " << probs[chosen] << endl;
+
+    game.proposals.push_back(proposer.proposalSpace[chosen]);
+
     return make_pair(proposer.name, proposer.proposalSpace[chosen]);
 }
 
@@ -181,7 +186,7 @@ pair<CoalitionStructure, vector<Coalition>> SignalSoftmaxQ::formationProcess()
     //{
     //    cout << "proposaal size == 2, agreement? " << agreement << endl;
     //}
-
+       game.acceptances.push_back(agreement);
     VectorXd singleShare(1);
     singleShare << 1.0;
     if (agreement)

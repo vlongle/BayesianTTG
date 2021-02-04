@@ -5,6 +5,7 @@
 #include "InformedBeliefAlgo.hpp"
 #include "SoftmaxQ.hpp"
 #include "SignalSoftmaxQ.hpp"
+#include "SignalBandit.hpp"
 #include "VPIAlgo.hpp"
 #include "Bandit.hpp"
 #include <string>
@@ -20,7 +21,7 @@ using namespace std::chrono;
 
 using namespace std;
 
-float SEED = 0;
+float SEED = 3;
 int numSteps = 100;
 
 double calculateCumulativePayoff(vector<CoalitionStructure> outcomes)
@@ -37,7 +38,7 @@ double calculateCumulativePayoff(vector<CoalitionStructure> outcomes)
     return res;
 }
 tuple<Tensor<double, 3>, vector<CoalitionStructure>, vector<vector<double>>,
-      vector<double>>
+      vector<double>, vector<double>>
 runAlgorithm(Algo &algo, int numSteps, bool exploitSignal = false,
              double trustLevel = 0.0)
 {
@@ -46,6 +47,7 @@ runAlgorithm(Algo &algo, int numSteps, bool exploitSignal = false,
     vector<CoalitionStructure> outcomes;
     vector<vector<double>> wealth(numSteps); // wealth[t][player]
     vector<double> avgInversions;
+    vector<double> signalFidelity;
 
     int n = algo.game.numPlayers;
 
@@ -58,10 +60,10 @@ runAlgorithm(Algo &algo, int numSteps, bool exploitSignal = false,
     // algo.game.reset_belief();
     for (int t = 0; t < numSteps; t++)
     {
-        //if (t % 10 == 0)
-        //{
-        //    cout << t << "/" << numSteps << endl;
-        //}
+        if (t % 10 == 0)
+        {
+           cout << t << "/" << numSteps << endl;
+        }
 
         // formationProcess ==> outcome-based update ==> update wealth ==>
         // belief update based on wealth ==> store result ==> repeat.
@@ -94,6 +96,7 @@ runAlgorithm(Algo &algo, int numSteps, bool exploitSignal = false,
         }
 
         avgInversions.push_back(algo.game.countCurrentAvgInversions());
+        signalFidelity.push_back(algo.game.computeCurrentSignalFidelity());
     }
 
     // // debug wealth
@@ -102,7 +105,7 @@ runAlgorithm(Algo &algo, int numSteps, bool exploitSignal = false,
     //     cout << " wealth " << wealth[wealth.size() - 1][i] << endl;
     // }
     // cout << "=============================================>" << endl;
-    return make_tuple(beliefs, outcomes, wealth, avgInversions);
+    return make_tuple(beliefs, outcomes, wealth, avgInversions, signalFidelity);
 }
 
 void writeOutcomes(vector<CoalitionStructure> outcomes, string fileName,
@@ -306,6 +309,29 @@ void bulkExperimentSoftmax(int numTrials, int numPlayers, int numWeights, vector
         writeVector(get<3>(beliefOutcomes), prefix + "_inversions_" + to_string(i) + ".txt");
         writeVector(game.agentWeights, prefix + "_agentWeights_" + to_string(i) + ".txt");
         writeProposals(game.proposals, prefix + "_proposals_" + to_string(i) + ".txt");
+                writeVector(game.acceptances, prefix + "_acceptance_" + to_string(i) + ".txt");
+        writeVector(get<4>(beliefOutcomes), prefix + "_signalFidelity_" + to_string(i) + ".txt");
+
+    }
+}
+
+void bulkExperimentInformed(int numTrials, int numPlayers, int numWeights, vector<int> &agentWeights, vector<Task> &tasks,
+                            string prefix = "./data/informed/cpp_informed")
+{
+#pragma omp parallel for
+    for (int i = 0; i < numTrials; i++)
+    {
+        mt19937_64 generator(i);
+        Game game(numPlayers, numWeights, tasks, generator, agentWeights);
+        InformedBeliefAlgo informed(game, generator);
+        auto beliefOutcomes = runAlgorithm(informed, numSteps);
+        writeOutcomes(get<1>(beliefOutcomes), prefix + "_outcomes_" + to_string(i) + ".txt");
+        writeBeliefs(get<0>(beliefOutcomes), prefix + "_beliefs_" + to_string(i) + ".txt", numSteps, numPlayers);
+        writeWealth(get<2>(beliefOutcomes), prefix + "_wealth_" + to_string(i) + ".txt");
+        writeVector(game.proposerList, prefix + "_proposerList_" + to_string(i) + ".txt");
+        writeVector(get<3>(beliefOutcomes), prefix + "_inversions_" + to_string(i) + ".txt");
+        writeVector(game.agentWeights, prefix + "_agentWeights_" + to_string(i) + ".txt");
+        writeProposals(game.proposals, prefix + "_proposals_" + to_string(i) + ".txt");
     }
 }
 
@@ -328,6 +354,77 @@ void bulkExperimentBeliefInjection(int numTrials, int numPlayers, int numWeights
         writeVector(get<3>(beliefOutcomes), prefix + "_inversions_" + to_string(i) + ".txt");
         writeVector(game.agentWeights, prefix + "_agentWeights_" + to_string(i) + ".txt");
         writeProposals(game.proposals, prefix + "_proposals_" + to_string(i) + ".txt");
+        writeVector(game.acceptances, prefix + "_acceptance_" + to_string(i) + ".txt");
+        writeVector(get<4>(beliefOutcomes), prefix + "_signalFidelity_" + to_string(i) + ".txt");
+    }
+}
+
+void bulkExperimentSignalSoftmax(int numTrials, int numPlayers, int numWeights, vector<int> &agentWeights, vector<Task> &tasks,
+                                 double lambda,
+                                 string prefix = "./data/regularizer/cpp_regularizer")
+{
+#pragma omp parallel for
+    for (int i = 0; i < numTrials; i++)
+    {
+        mt19937_64 generator(i);
+        Game game(numPlayers, numWeights, tasks, generator, agentWeights);
+        SignalSoftmaxQ signalSoftmaxQ(game, generator);
+        signalSoftmaxQ.lambda = lambda;
+
+        auto beliefOutcomes = runAlgorithm(signalSoftmaxQ, numSteps);
+        writeOutcomes(get<1>(beliefOutcomes), prefix + "_outcomes_" + to_string(i) + ".txt");
+        writeBeliefs(get<0>(beliefOutcomes), prefix + "_beliefs_" + to_string(i) + ".txt", numSteps, numPlayers);
+        writeWealth(get<2>(beliefOutcomes), prefix + "_wealth_" + to_string(i) + ".txt");
+        writeVector(game.proposerList, prefix + "_proposerList_" + to_string(i) + ".txt");
+        writeVector(get<3>(beliefOutcomes), prefix + "_inversions_" + to_string(i) + ".txt");
+        writeVector(game.agentWeights, prefix + "_agentWeights_" + to_string(i) + ".txt");
+        writeProposals(game.proposals, prefix + "_proposals_" + to_string(i) + ".txt");
+        writeVector(game.acceptances, prefix + "_acceptance_" + to_string(i) + ".txt");
+        writeVector(get<4>(beliefOutcomes), prefix + "_signalFidelity_" + to_string(i) + ".txt");
+    }
+}
+
+void bulkExperimentBandit(int numTrials, int numPlayers, int numWeights, vector<int> &agentWeights, vector<Task> &tasks,
+                          string prefix = "./data/bandit/cpp_bandit")
+{
+#pragma omp parallel for
+    for (int i = 0; i < numTrials; i++)
+    {
+        mt19937_64 generator(i);
+        Game game(numPlayers, numWeights, tasks, generator, agentWeights);
+        Bandit bandit(game, generator);
+
+        auto beliefOutcomes = runAlgorithm(bandit, numSteps);
+        writeOutcomes(get<1>(beliefOutcomes), prefix + "_outcomes_" + to_string(i) + ".txt");
+        writeBeliefs(get<0>(beliefOutcomes), prefix + "_beliefs_" + to_string(i) + ".txt", numSteps, numPlayers);
+        writeWealth(get<2>(beliefOutcomes), prefix + "_wealth_" + to_string(i) + ".txt");
+        writeVector(game.proposerList, prefix + "_proposerList_" + to_string(i) + ".txt");
+        writeVector(get<3>(beliefOutcomes), prefix + "_inversions_" + to_string(i) + ".txt");
+        writeVector(game.agentWeights, prefix + "_agentWeights_" + to_string(i) + ".txt");
+        writeProposals(game.proposals, prefix + "_proposals_" + to_string(i) + ".txt");
+    }
+}
+
+void bulkExperimentSignalBandit(int numTrials, int numPlayers, int numWeights, vector<int> &agentWeights, vector<Task> &tasks,
+                                double lambda,
+                                string prefix = "./data/signalBandit/cpp_signalBandit")
+{
+#pragma omp parallel for
+    for (int i = 0; i < numTrials; i++)
+    {
+        mt19937_64 generator(i);
+        Game game(numPlayers, numWeights, tasks, generator, agentWeights);
+        SignalBandit signalBandit(game, generator);
+        signalBandit.lambda = lambda;
+
+        auto beliefOutcomes = runAlgorithm(signalBandit, numSteps);
+        writeOutcomes(get<1>(beliefOutcomes), prefix + "_outcomes_" + to_string(i) + ".txt");
+        writeBeliefs(get<0>(beliefOutcomes), prefix + "_beliefs_" + to_string(i) + ".txt", numSteps, numPlayers);
+        writeWealth(get<2>(beliefOutcomes), prefix + "_wealth_" + to_string(i) + ".txt");
+        writeVector(game.proposerList, prefix + "_proposerList_" + to_string(i) + ".txt");
+        writeVector(get<3>(beliefOutcomes), prefix + "_inversions_" + to_string(i) + ".txt");
+        writeVector(game.agentWeights, prefix + "_agentWeights_" + to_string(i) + ".txt");
+        writeProposals(game.proposals, prefix + "_proposals_" + to_string(i) + ".txt");
     }
 }
 
@@ -338,7 +435,7 @@ void softmaxBulkExperiment(string prefix = "./data/softmax/cpp_softmax")
         {4, 5.9},
         {2, 3},
     };
-    int numPlayers = 3;
+    int numPlayers = 5;
     int numWeights = 4;
     // deliberately give fewer agentWeights than required to trigger random weight initialization!
     vector<int> agentWeights = {};
@@ -354,11 +451,67 @@ void beliefInjectionBulkExperiment(double trustLevel,
         {4, 5.9},
         {2, 3},
     };
-    int numPlayers = 3;
+    int numPlayers = 5;
     int numWeights = 4;
     // deliberately give fewer agentWeights than required to trigger random weight initialization!
     vector<int> agentWeights = {};
     bulkExperimentBeliefInjection(numTrials, numPlayers, numWeights, agentWeights, tasks, trustLevel, prefix);
+}
+
+void informedBeliefBulkExperiment(int numTrials = 1, string prefix = "./data/informed/cpp_informed")
+{
+    vector<Task> tasks = {
+        {1, 1},
+        {4, 5.9},
+        {2, 3},
+    };
+    int numPlayers = 5;
+    int numWeights = 4;
+    // deliberately give fewer agentWeights than required to trigger random weight initialization!
+    vector<int> agentWeights = {};
+    bulkExperimentInformed(numTrials, numPlayers, numWeights, agentWeights, tasks, prefix);
+}
+
+void signalSoftmaxBulkExperiment(double lambda, int numTrials = 1, string prefix = "./data/regularizer/cpp_regularizer")
+{
+    vector<Task> tasks = {
+        {1, 1},
+        {4, 5.9},
+        {2, 3},
+    };
+    int numPlayers = 5;
+    int numWeights = 4;
+    // deliberately give fewer agentWeights than required to trigger random weight initialization!
+    vector<int> agentWeights = {};
+    bulkExperimentSignalSoftmax(numTrials, numPlayers, numWeights, agentWeights, tasks, lambda, prefix);
+}
+
+void banditBulkExperiment(int numTrials = 1, string prefix = "./data/bandit/cpp_bandit")
+{
+    vector<Task> tasks = {
+        {1, 1},
+        {4, 5.9},
+        {2, 3},
+    };
+    int numPlayers = 5;
+    int numWeights = 4;
+    // deliberately give fewer agentWeights than required to trigger random weight initialization!
+    vector<int> agentWeights = {};
+    bulkExperimentBandit(numTrials, numPlayers, numWeights, agentWeights, tasks, prefix);
+}
+
+void signalBanditBulkExperiment(double lambda, int numTrials = 1, string prefix = "./data/signalBandit/cpp_signalBandit")
+{
+    vector<Task> tasks = {
+        {1, 1},
+        {4, 5.9},
+        {2, 3},
+    };
+    int numPlayers = 5;
+    int numWeights = 4;
+    // deliberately give fewer agentWeights than required to trigger random weight initialization!
+    vector<int> agentWeights = {};
+    bulkExperimentSignalBandit(numTrials, numPlayers, numWeights, agentWeights, tasks, lambda, prefix);
 }
 
 //int main()
@@ -603,16 +756,191 @@ void OneSmallInformedBeliefExperiment()
 
 void figureSamplePaperv3()
 {
-    // softmaxBulkExperiment("./data_3agents/softmax/cpp_softmax");
-    //beliefInjectionBulkExperiment(0.1, 30, "./data_3agents/0.1_injection/cpp_injection");
-    beliefInjectionBulkExperiment(0.5, 30, "./data_3agents/0.5_injection/cpp_injection");
-    beliefInjectionBulkExperiment(1.0, 30, "./data_3agents/1.0_injection/cpp_injection");
-    beliefInjectionBulkExperiment(5.0, 30, "./data_3agents/5.0_injection/cpp_injection");
-    beliefInjectionBulkExperiment(10.0, 30, "./data_3agents/10.0_injection/cpp_injection");
-    beliefInjectionBulkExperiment(20.0, 30, "./data_3agents/20.0_injection/cpp_injection");
+
+    // informedBeliefBulkExperiment(30, "./data_5agents/informed/cpp_informed");
+    // softmaxBulkExperiment("./data_5agents/softmax/cpp_softmax");
+
+    // injection
+    // beliefInjectionBulkExperiment(0.1, 30, "./data_5agents/0.1_injection/cpp_injection");
+    // beliefInjectionBulkExperiment(0.5, 30, "./data_5agents/0.5_injection/cpp_injection");
+    // beliefInjectionBulkExperiment(1.0, 30, "./data_5agents/1.0_injection/cpp_injection");
+    beliefInjectionBulkExperiment(5.0, 30, "./data_5agents/5.0_injection/cpp_injection");
+    // beliefInjectionBulkExperiment(10.0, 30, "./data_5agents/10.0_injection/cpp_injection");
+    // beliefInjectionBulkExperiment(20.0, 30, "./data_5agents/20.0_injection/cpp_injection");
+
+    // regularized softmax
+    // signalSoftmaxBulkExperiment(0.1, 30, "./data_5agents/0.1_regularizer/cpp_regularizer");
+    // signalSoftmaxBulkExperiment(0.5, 30, "./data_5agents/0.5_regularizer/cpp_regularizer");
+    // signalSoftmaxBulkExperiment(1.0, 30, "./data_5agents/1.0_regularizer/cpp_regularizer");
+    // signalSoftmaxBulkExperiment(5.0, 30, "./data_5agents/5.0_regularizer/cpp_regularizer");
+    // signalSoftmaxBulkExperiment(10.0, 30, "./data_5agents/10.0_regularizer/cpp_regularizer");
+    // signalSoftmaxBulkExperiment(20.0, 30, "./data_5agents/20.0_regularizer/cpp_regularizer");
+
+    // banditBulkExperiment(30, "./data_5agents/bandit/cpp_bandit");
+
+    // regularized bandit
+    // signalBanditBulkExperiment(0.1, 30, "./data_5agents/0.1_regularizedBandit/cpp_regularizedBandit");
+    // signalBanditBulkExperiment(0.5, 30, "./data_5agents/0.5_regularizedBandit/cpp_regularizedBandit");
+    // signalBanditBulkExperiment(1.0, 30, "./data_5agents/1.0_regularizedBandit/cpp_regularizedBandit");
+    // signalBanditBulkExperiment(5.0, 30, "./data_5agents/5.0_regularizedBandit/cpp_regularizedBandit");
+    // signalBanditBulkExperiment(10.0, 30, "./data_5agents/10.0_regularizedBandit/cpp_regularizedBandit");
+    // signalBanditBulkExperiment(20.0, 30, "./data_5agents/20.0_regularizedBandit/cpp_regularizedBandit");
+}
+
+
+// might need to redo this ...
+void caseStudyWhySignalIsGood()
+{
+    vector<Task> tasks = {
+        {1, 1},
+        {4, 5.9},
+        {2, 3},
+    };
+    int numPlayers = 2;
+    int numWeights = 4;
+
+    vector<int> weightRange = {1, 2, 3, 4};
+
+    double signalSum = 0;
+    double softmaxSum = 0;
+    for (auto &agentWeights : CartesianSelfProduct(weightRange, 2))
+    {
+
+        cout << "weight\n";
+        printVec(agentWeights);
+
+        mt19937_64 generator(SEED);
+        Game game(numPlayers, numWeights, tasks, generator, agentWeights);
+
+        mt19937_64 generatorSignal(SEED);
+        Game gameSignal(numPlayers, numWeights, tasks, generatorSignal, agentWeights);
+
+        SoftmaxQ softmax(game, generator);
+        auto beliefOutcomesSoft = runAlgorithm(softmax, numSteps);
+
+        SignalSoftmaxQ softmaxSig(gameSignal, generatorSignal);
+        auto beliefOutcomesSignal = runAlgorithm(softmaxSig, numSteps);
+
+        cout << "softmax cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesSoft)) << " | ";
+        cout << "signal cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesSignal)) << endl;
+        softmaxSum += calculateCumulativePayoff(get<1>(beliefOutcomesSoft));
+        signalSum += calculateCumulativePayoff(get<1>(beliefOutcomesSignal));
+    }
+
+    cout << "In total, softmax : " << softmaxSum << " | signal: " << signalSum << endl;
+}
+
+void OneCaseStudyWhySignalIsGood()
+{
+    // theory: if the limiting belief is correct, then this justice stuff just increases the acceptance rate,
+    // which generally leads to more optimal structure. The environment is by design this way since that's kinda
+    // the point of cooperative games: to cooperate!
+    vector<Task> tasks = {
+        {1, 1},
+        {4, 5.9},
+        {2, 3},
+    };
+    int numPlayers = 2;
+    int numWeights = 4;
+    vector<int> agentWeights = {3,4};
+
+    mt19937_64 generator(SEED);
+    Game game(numPlayers, numWeights, tasks, generator, agentWeights);
+
+    mt19937_64 generatorSignal(SEED);
+    Game gameSignal(numPlayers, numWeights, tasks, generatorSignal, agentWeights);
+
+    SoftmaxQ softmax(game, generator);
+    auto beliefOutcomesSoft = runAlgorithm(softmax, numSteps);
+
+    SignalSoftmaxQ softmaxSig(gameSignal, generatorSignal);
+    auto beliefOutcomesSignal = runAlgorithm(softmaxSig, numSteps);
+
+    cout << "softmax cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesSoft)) << " | ";
+    cout << "signal cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesSignal)) << endl;
+
+    string prefix = "./caseStudyWhySignalIsGood/softmax/soft_subadditive";
+
+    writeOutcomes(get<1>(beliefOutcomesSoft), prefix + "_outcomes_" + ".txt");
+    writeBeliefs(get<0>(beliefOutcomesSoft), prefix + "_beliefs_" + ".txt", numSteps, numPlayers);
+    writeWealth(get<2>(beliefOutcomesSoft), prefix + "_wealth_" + ".txt");
+    writeVector(game.proposerList, prefix + "_proposerList_" + ".txt");
+    writeProposals(game.proposals, prefix + "_proposals_" + ".txt");
+    writeVector(game.acceptances, prefix + "_acceptance_" + ".txt");
+    writeVector(get<4>(beliefOutcomesSoft), prefix + "_signalFidelity_" + ".txt");
+
+    prefix = "./caseStudyWhySignalIsGood/signal/signal_subadditive";
+    writeOutcomes(get<1>(beliefOutcomesSignal), prefix + "_outcomes_" + ".txt");
+    writeBeliefs(get<0>(beliefOutcomesSignal), prefix + "_beliefs_" + ".txt", numSteps, numPlayers);
+    writeWealth(get<2>(beliefOutcomesSignal), prefix + "_wealth_" + ".txt");
+    writeVector(gameSignal.proposerList, prefix + "_proposerList_" + ".txt");
+    writeProposals(gameSignal.proposals, prefix + "_proposals_" + ".txt");
+    writeVector(gameSignal.acceptances, prefix + "_acceptance_" + ".txt");
+    writeVector(get<4>(beliefOutcomesSignal), prefix + "_signalFidelity_" + ".txt");
+}
+
+void regularizedCounterTheoreticalExample(){
+
+vector<Task> tasks = {
+        {13, 1.5},
+        {35, 2}
+    };
+    int numPlayers = 3;
+    int numWeights = 30;
+    vector<int> agentWeights = {3,10,11};
+
+
+    mt19937_64 generator(SEED);
+    Game game(numPlayers, numWeights, tasks, generator, agentWeights);
+
+    mt19937_64 generatorSignal(SEED);
+    Game gameSignal(numPlayers, numWeights, tasks, generatorSignal, agentWeights);
+
+    mt19937_64 generatorInformed(SEED);
+    Game gameInformed(numPlayers, numWeights, tasks, generatorInformed, agentWeights);
+
+    mt19937_64 generatorInjection(SEED);
+    Game gameInjection(numPlayers, numWeights, tasks, generatorInjection, agentWeights);
+
+    // modify the initial currentWealth!
+    game.agents[0].currentWealth = 3;
+    game.agents[1].currentWealth = 10;
+    game.agents[2].currentWealth = 22;
+
+
+    gameSignal.agents[0].currentWealth = 3;
+    gameSignal.agents[1].currentWealth = 10;
+    gameSignal.agents[2].currentWealth = 22;
+
+    gameInformed.agents[0].currentWealth = 3;
+    gameInformed.agents[1].currentWealth = 10;
+    gameInformed.agents[2].currentWealth = 22;
+
+    gameInjection.agents[0].currentWealth = 3;
+    gameInjection.agents[1].currentWealth = 10;
+    gameInjection.agents[2].currentWealth = 22;
+
+    SoftmaxQ softmax(game, generator);
+    SignalSoftmaxQ softmaxSig(gameSignal, generatorSignal);
+    InformedBeliefAlgo inform(gameInformed, generatorInformed);
+    SoftmaxQ softmaxQInjection(gameInjection, generatorInjection);
+
+
+    double trustLevel = 5.0;
+    auto beliefOutcomesSoft = runAlgorithm(softmax, numSteps);
+    auto beliefOutcomesSignal = runAlgorithm(softmaxSig, numSteps);
+    auto beliefOutcomesInformed = runAlgorithm(inform, numSteps);
+    auto beliefOutcomesInjection = runAlgorithm(softmaxQInjection, numSteps, true, trustLevel);
+
+    cout << "softmax cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesSoft)) << " | ";
+    cout << "signal cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesSignal)) << " | ";
+    cout << "informed cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesInformed)) << " | ";
+    cout << "injection cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesInjection)) << endl;
+
 }
 int main()
 {
+    auto start = high_resolution_clock::now();
     //OneSmallInformedBeliefExperiment();
     // OneSmallSoftmaxLimitingBeliefExperiment();
     // OneSmallExploitSoftmaxExperiment();
@@ -621,5 +949,34 @@ int main()
     // OneSmallSoftmaxLimitingBeliefExperiment();
 
     // beliefInjectionBulkExperiment(0.1, 30, "./data_3agents/injection");
-    figureSamplePaperv3();
+    // figureSamplePaperv3();
+
+    // // fixing nan
+    // vector<Task> tasks = {
+    //     {1, 1},
+    //     {4, 5.9},
+    //     {2, 3},
+    // };
+    // vector<int> agentWeights = {};
+    // int numPlayers = 3;
+    // int numWeights = 4;
+
+    // mt19937_64 generator(13);
+    // Game game(numPlayers, numWeights, tasks, generator, agentWeights);
+    // SoftmaxQ softmaxQ(game, generator);
+    // auto beliefOutcomes = runAlgorithm(softmaxQ, numSteps, true, 20);
+
+
+
+    // OneCaseStudyWhySignalIsGood();
+    // caseStudyWhySignalIsGood();
+
+    regularizedCounterTheoreticalExample();
+
+    // figureSamplePaperv3();
+
+
+
+    auto stop = high_resolution_clock::now();
+    cout << "took " << duration_cast<seconds>(stop - start).count() << " seconds " << endl;
 }

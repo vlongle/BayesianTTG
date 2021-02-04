@@ -51,4 +51,8 @@ public:
 
     VectorXd weightRangeVec;
     double countCurrentAvgInversions();
+    double computeCurrentSignalFidelity();
+
+    // accept = 1, reject = 0. Keep track of acceptance of proposal over time
+    vector<int> acceptances;
 };

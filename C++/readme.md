@@ -104,7 +104,7 @@ Also, at the moment, the Gaussian pdf trust-signal updating is cumulative. We mi
 
 
 
-## CRITICAL!! DEBUG THIS
+## OMP BUG
 
 For beliefInjectionBulkExperiment(0.1)
 there's appear to be inconsistency between trial = 1 and trial = 30
@@ -115,3 +115,78 @@ We are still using SEEDED random number generator
 __RESOLVED__: This is an extremely pesky bug. I was passing the variable _tasks_ to _Game_ object by reference before. This is totally fine
 for sequential program. But for parallel program, this is really bad due to race condition! Different threads would attempt to access _tasks_ to execute
 the function _evaluateCoalition_ which can yields wrong result!!!
+
+
+## TODO: OPTIMIZE
+Replace for loop with Eigen vector arithmetics whenever possible for performance
+
+## Result
+
+For the code
+```
+void regularizedCounterTheoreticalExample(){
+
+vector<Task> tasks = {
+        {13, 1.5},
+        {35, 2}
+    };
+    int numPlayers = 3;
+    int numWeights = 30;
+    vector<int> agentWeights = {3,10,11};
+
+
+    mt19937_64 generator(SEED);
+    Game game(numPlayers, numWeights, tasks, generator, agentWeights);
+
+    mt19937_64 generatorSignal(SEED);
+    Game gameSignal(numPlayers, numWeights, tasks, generatorSignal, agentWeights);
+
+    mt19937_64 generatorInformed(SEED);
+    Game gameInformed(numPlayers, numWeights, tasks, generatorInformed, agentWeights);
+
+    mt19937_64 generatorInjection(SEED);
+    Game gameInjection(numPlayers, numWeights, tasks, generatorInjection, agentWeights);
+
+    // modify the initial currentWealth!
+    game.agents[0].currentWealth = 3;
+    game.agents[1].currentWealth = 10;
+    game.agents[2].currentWealth = 22;
+
+
+    gameSignal.agents[0].currentWealth = 3;
+    gameSignal.agents[1].currentWealth = 10;
+    gameSignal.agents[2].currentWealth = 22;
+
+    gameInformed.agents[0].currentWealth = 3;
+    gameInformed.agents[1].currentWealth = 10;
+    gameInformed.agents[2].currentWealth = 22;
+
+    gameInjection.agents[0].currentWealth = 3;
+    gameInjection.agents[1].currentWealth = 10;
+    gameInjection.agents[2].currentWealth = 22;
+
+    SoftmaxQ softmax(game, generator);
+    SignalSoftmaxQ softmaxSig(gameSignal, generatorSignal);
+    InformedBeliefAlgo inform(gameInformed, generatorInformed);
+    SoftmaxQ softmaxQInjection(gameInjection, generatorInjection);
+
+
+    double trustLevel = 5.0;
+    auto beliefOutcomesSoft = runAlgorithm(softmax, numSteps);
+    auto beliefOutcomesSignal = runAlgorithm(softmaxSig, numSteps);
+    auto beliefOutcomesInformed = runAlgorithm(inform, numSteps);
+    auto beliefOutcomesInjection = runAlgorithm(softmaxQInjection, numSteps, true, trustLevel);
+
+    cout << "softmax cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesSoft)) << " | ";
+    cout << "signal cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesSignal)) << " | ";
+    cout << "informed cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesInformed)) << " | ";
+    cout << "injection cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesInjection)) << endl;
+
+}
+```
+for num_steps = 100 and seed = 3.
+The Result is
+```
+softmax cumulative payoff 148.5 | signal cumulative payoff 147 | informed cumulative payoff 150 | injection cumulative payoff 148.5
+took 303 seconds
+```

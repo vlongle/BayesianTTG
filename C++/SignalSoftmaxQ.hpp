@@ -14,9 +14,10 @@ public:
     uniform_int_distribution<int> distribution;
     uniform_real_distribution<double> u;
     pair<int, Proposal> proposalOutcome();
-    VectorXd calculateRegularizer(Agent &proposer);
-    double countInversionOfProposal(Proposal &proposal);
     // second return is a vector of non-singleton coalitions. The number of such coalitions
     // is either 0 or 1
     pair<CoalitionStructure, vector<Coalition>> formationProcess();
+
+    double countInversionOfProposal(Proposal &proposal);
+    VectorXd calculateRegularizer(Agent &proposer);
 };

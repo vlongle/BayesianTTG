@@ -198,6 +198,8 @@ pair<CoalitionStructure, vector<Coalition>> SoftmaxQ::formationProcess()
     //    cout << "proposaal size == 2, agreement? " << agreement << endl;
     //}
 
+    game.acceptances.push_back(agreement);
+
     VectorXd singleShare(1);
     singleShare << 1.0;
     if (agreement)

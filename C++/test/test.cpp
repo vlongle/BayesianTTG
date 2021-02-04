@@ -86,12 +86,12 @@ int countInversions(vector<a> groundTruth, vector<a> candidate){
 
 }
 
-int main(){
-    VectorXd v(2);
-    v << 1,2;
-    cout << v << endl;
-
-    ofstream out("test.txt");
-    out << v;
-        out.close();
-}
+//int main(){
+//    VectorXd v(2);
+//    v << 1,2;
+//    cout << v << endl;
+//
+//    ofstream out("test.txt");
+//    out << v;
+//        out.close();
+//}

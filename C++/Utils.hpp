@@ -132,7 +132,6 @@ vector<a> set2vec(set<a> s)
     return v;
 }
 
-
 template <typename a>
 set<a> vec2set(vector<a> v)
 {
@@ -140,26 +139,32 @@ set<a> vec2set(vector<a> v)
     return s;
 }
 
-
 template <typename a>
-int countInversions(vector<a> groundTruth, vector<a> candidate){
-    if (groundTruth.size() != candidate.size()){
+int countInversions(vector<a> groundTruth, vector<a> candidate)
+{
+    if (groundTruth.size() != candidate.size())
+    {
         cout << "CRITICAL!!!!! Something wrong in countInversion() function" << endl;
         return 0;
     }
-    
+
     int n = groundTruth.size();
     int inversions = 0;
-    for (int i=0; i < n-1; i++){
-        for (int j=i+1; j<n; j++){
-        
-            if (groundTruth[i] > groundTruth[j] && candidate[i] <= candidate[j]){
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+
+            if (groundTruth[i] > groundTruth[j] && candidate[i] <= candidate[j])
+            {
                 inversions++;
             }
-            else if (groundTruth[i] < groundTruth[j] && candidate[i] >= candidate[j]){
+            else if (groundTruth[i] < groundTruth[j] && candidate[i] >= candidate[j])
+            {
                 inversions++;
             }
-            else if (groundTruth[i] == groundTruth[j] && candidate[i] != candidate[j]){
+            else if (groundTruth[i] == groundTruth[j] && candidate[i] != candidate[j])
+            {
                 inversions++;
             }
         }
@@ -167,3 +172,4 @@ int countInversions(vector<a> groundTruth, vector<a> candidate){
 
     return inversions;
 }
+

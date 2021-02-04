@@ -10,7 +10,7 @@ void InformedBeliefAlgo::informBelief()
             //cout << "agent: " << agent.name << " changing belief of otherAgent " << otherAgent << endl;
             agent.belief.row(otherAgent) *= 0; // set row to 0
             double correctWeight = game.agents[otherAgent].weight;
-            agent.belief(otherAgent, correctWeight - game.minWeight) = 1; // turn on the correct weight
+            agent.belief(otherAgent, correctWeight - game.minWeight) = 1.0; // turn on the correct weight
             //cout << "res: " << agent.belief.row(otherAgent) << endl;
         }
     }
@@ -23,7 +23,8 @@ pair<int, Proposal> InformedBeliefAlgo::proposalOutcome()
 {
     Agent &proposer = game.agents[distribution(generator)];
     game.proposerList.push_back(proposer.name);
-    cout << "inform belief proposal is " << proposer.name << endl;
+    game.proposerList.push_back(proposer.name);
+    // cout << "inform belief proposal is " << proposer.name << endl;
 
     // only compute bestProposals again if my belief has changed!
     if (proposer.beliefChanged || proposer.bestProposals.size() == 0)
@@ -67,22 +68,25 @@ pair<int, Proposal> InformedBeliefAlgo::proposalOutcome()
         }
         proposer.bestProposals = bestProposals;
     }
-    cout << "best proposal " << endl;
-    // debug
-    for (auto &proposal : proposer.bestProposals)
-    {
-        cout << "===========================" << endl;
-        cout << ">> coalition " << endl;
-        printSet(proposal.first);
-        cout << "\n >> divisionRule" << endl;
-        cout << proposal.second << endl;
-        cout << "===========================" << endl;
-    }
+    // cout << "best proposal " << endl;
+    // // debug
+    // for (auto &proposal : proposer.bestProposals)
+    // {
+    //     cout << "===========================" << endl;
+    //     cout << ">> coalition " << endl;
+    //     printSet(proposal.first);
+    //     cout << "\n >> divisionRule" << endl;
+    //     cout << proposal.second << endl;
+    //     cout << "===========================" << endl;
+    // }
     // randomly choose an element from the best proposals!
     // TODO: test this!!
     uniform_int_distribution<int> dist(0, proposer.bestProposals.size() - 1);
     //cout << "ProposalOutcome done!" << endl;
-    return make_pair(proposer.name, proposer.bestProposals[dist(generator)]);
+    int chosen = dist(generator);
+    game.proposals.push_back(proposer.proposalSpace[chosen]);
+
+    return make_pair(proposer.name, proposer.bestProposals[chosen]);
 }
 
 // second return is a vector of non-singleton coalitions. The number of such coalitions
