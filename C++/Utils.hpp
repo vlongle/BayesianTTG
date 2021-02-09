@@ -33,6 +33,7 @@ typedef pair<Coalition, VectorXd> Proposal;
 // list of pair (coalition, divisionRule, coalitionValue
 typedef vector<tuple<Coalition, VectorXd, double>> CoalitionStructure;
 
+
 //MatrixXd softmax(const MatrixXd &M);
 
 VectorXd softmax(const VectorXd &v);
@@ -46,9 +47,45 @@ void printSet(set<int> A);
 void printVec(vector<int> A);
 void printVec(vector<double> A);
 
-vector<vector<int>> CartesianProduct(vector<vector<int>> A, vector<vector<int>> B);
 
-vector<vector<int>> CartesianSelfProduct(vector<int> A, int repeat);
+// type of A, B is vector<vector<T>> instead of more natural vector<T> to
+// support CartesianSelfProduct
+template <typename T>
+vector<vector<T>> CartesianProduct(vector<vector<T>> A, vector<vector<T>> B)
+{
+    vector<vector<T>> ret;
+    for (auto &a : A)
+    {
+        for (auto &b : B)
+        {
+            vector<T> c = a; // hopefully copy by value!
+            // concatenate two vectors c and b!
+            c.insert(c.end(), b.begin(), b.end());
+            ret.push_back(c);
+        }
+    }
+    return ret;
+}
+
+template <typename T>
+// self product of A "repeat" number of times
+vector<vector<T>> CartesianSelfProduct(vector<T> A, int repeat)
+{
+
+    vector<vector<T>> A_transformed;
+    for (auto elt : A)
+    {
+        A_transformed.push_back(vector<T>({elt}));
+    }
+    vector<vector<T>> ret = A_transformed;
+    for (int i = 0; i < repeat - 1; i++)
+    {
+        ret = CartesianProduct(ret, A_transformed);
+    }
+    return ret;
+}
+
+
 // select an index based on probabilities given in probs. Probs should
 // already be a proper probability vector
 int selectAction(const VectorXd &probs, mt19937_64 &generator, uniform_real_distribution<double> &u);

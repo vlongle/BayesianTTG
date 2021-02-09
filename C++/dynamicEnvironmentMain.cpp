@@ -19,7 +19,6 @@
 using namespace std;
 
 
-typedef vector<vector<Task>> Environments;
 
 vector<vector<int>> assignPlayersToRooms(int n, int m, mt19937_64 &generator, uniform_int_distribution<int> &distribution)
 {
@@ -71,19 +70,21 @@ void runDynamicEnvAlgorithm(vector<Agent> &agents, Environments &envs, int numSt
 
     writeRoomAssignment(assignment, "./assignment.txt");
 }
-// int main()
-// {
-//     vector<Task> env1 = {
-//         {0, 0},
-//     };
-//     vector<Task> env2 = {
-//         {0, 1},
-//     };
 
-//     int seed = 10;
-//     int numSteps = 10000;
-//     Environments envs = {env1, env2};
-//     vector<Agent> agents = {Agent(0, 0), Agent(0, 1)};
+int main()
+{
+    vector<Task> env1 = {
+        {0, 0},
+    };
+    vector<Task> env2 = {
+        {0, 1},
+    };
 
-//     runDynamicEnvAlgorithm(agents, envs, numSteps, seed);
-// }
+    int seed = 0;
+    int numSteps = 100;
+    //Environments envs = {env1, env2};
+    Environments envs = {env1};
+    vector<Agent> agents = {Agent(0, 0), Agent(0, 1)};
+
+    runDynamicEnvAlgorithm(agents, envs, numSteps, seed);
+}

@@ -938,45 +938,45 @@ vector<Task> tasks = {
     cout << "injection cumulative payoff " << calculateCumulativePayoff(get<1>(beliefOutcomesInjection)) << endl;
 
 }
-int main()
-{
-    auto start = high_resolution_clock::now();
-    //OneSmallInformedBeliefExperiment();
-    // OneSmallSoftmaxLimitingBeliefExperiment();
-    // OneSmallExploitSoftmaxExperiment();
-    // softmaxBulkExperiment();
-    // OneSmallExploitSoftmaxExperiment();
-    // OneSmallSoftmaxLimitingBeliefExperiment();
+// int main()
+// {
+//     auto start = high_resolution_clock::now();
+//     //OneSmallInformedBeliefExperiment();
+//     // OneSmallSoftmaxLimitingBeliefExperiment();
+//     // OneSmallExploitSoftmaxExperiment();
+//     // softmaxBulkExperiment();
+//     // OneSmallExploitSoftmaxExperiment();
+//     // OneSmallSoftmaxLimitingBeliefExperiment();
 
-    // beliefInjectionBulkExperiment(0.1, 30, "./data_3agents/injection");
-    // figureSamplePaperv3();
+//     // beliefInjectionBulkExperiment(0.1, 30, "./data_3agents/injection");
+//     // figureSamplePaperv3();
 
-    // // fixing nan
-    // vector<Task> tasks = {
-    //     {1, 1},
-    //     {4, 5.9},
-    //     {2, 3},
-    // };
-    // vector<int> agentWeights = {};
-    // int numPlayers = 3;
-    // int numWeights = 4;
+//     // // fixing nan
+//     // vector<Task> tasks = {
+//     //     {1, 1},
+//     //     {4, 5.9},
+//     //     {2, 3},
+//     // };
+//     // vector<int> agentWeights = {};
+//     // int numPlayers = 3;
+//     // int numWeights = 4;
 
-    // mt19937_64 generator(13);
-    // Game game(numPlayers, numWeights, tasks, generator, agentWeights);
-    // SoftmaxQ softmaxQ(game, generator);
-    // auto beliefOutcomes = runAlgorithm(softmaxQ, numSteps, true, 20);
-
-
-
-    // OneCaseStudyWhySignalIsGood();
-    // caseStudyWhySignalIsGood();
-
-    regularizedCounterTheoreticalExample();
-
-    // figureSamplePaperv3();
+//     // mt19937_64 generator(13);
+//     // Game game(numPlayers, numWeights, tasks, generator, agentWeights);
+//     // SoftmaxQ softmaxQ(game, generator);
+//     // auto beliefOutcomes = runAlgorithm(softmaxQ, numSteps, true, 20);
 
 
 
-    auto stop = high_resolution_clock::now();
-    cout << "took " << duration_cast<seconds>(stop - start).count() << " seconds " << endl;
-}
+//     // OneCaseStudyWhySignalIsGood();
+//     // caseStudyWhySignalIsGood();
+
+//     regularizedCounterTheoreticalExample();
+
+//     // figureSamplePaperv3();
+
+
+
+//     auto stop = high_resolution_clock::now();
+//     cout << "took " << duration_cast<seconds>(stop - start).count() << " seconds " << endl;
+// }

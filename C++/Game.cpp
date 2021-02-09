@@ -4,7 +4,7 @@
 
 Game::Game(int numPlayers, int numberOfWeights, vector<Task> tasks,
            mt19937_64 &generator, const vector<int> agentWeights, int minWeight) : weightRange(numberOfWeights),
-                                                                                   tasks(tasks)
+                                                                                   envs(envs)
 {
 
     this->numPlayers = numPlayers;
@@ -45,29 +45,42 @@ Game::Game(int numPlayers, int numberOfWeights, vector<Task> tasks,
 
     // sort the tasks based on threshold (which also sort them based on
     // rewards as well!)
-    sort(this->tasks.begin(), this->tasks.end(),
-         [](const Task &lhs, const Task &rhs) {
-             return lhs.threshold < rhs.threshold;
-         });
+    for (auto &tasks : envs)
+    {
+        sort(this->tasks.begin(), this->tasks.end(),
+             [](const Task &lhs, const Task &rhs) {
+                 return lhs.threshold < rhs.threshold;
+             });
+    }
     // this doesn't work ....
     // find max/min rewards so that we can do bandit
-    minReward = this->tasks[0].reward;
-    maxReward = this->tasks[this->tasks.size() - 1].reward;
-
-    // initialize rewardToThreshold and nextHigherThreshold
-    for (int i = 0; i < this->tasks.size() - 1; i++)
+    // NOTE: for dynamic environments, we'd probably have to make the bandit contextual!
+    for (auto &tasks : envs)
     {
-        rewardToThreshold[this->tasks[i].reward] = this->tasks[i].threshold;
-        nextHigherThreshold[this->tasks[i].reward] = this->tasks[i + 1].threshold;
+        minReward = min(minReward, this->tasks[0].reward);
+        maxReward = max(minReward, this->tasks[this->tasks.size() - 1].reward);
     }
-    nextHigherThreshold[this->tasks[this->tasks.size() - 1].reward] = 100000;
-    rewardToThreshold[this->tasks[this->tasks.size() - 1].reward] =
-        this->tasks[this->tasks.size() - 1].threshold;
-    rewardToThreshold[0] = -100000; // reward is always strictly bigger than 0. Reward = 0
-                                    // is when the agents' weights are so low that no tasks are feasible!
 
-    // generate all division rules once so that agents can re-use those
-    for (int i = 1; i <= numPlayers; i++)
+    for (auto [envNum, tasks] : enumerate(envs))
+    {
+        // initialize rewardToThreshold and nextHigherThreshold
+        for (int i = 0; i < this->tasks.size() - 1; i++)
+        {
+            rewardToThreshold[envNum][this->tasks[i].reward] = this->tasks[i].threshold;
+            nextHigherThreshold[envNum][this->tasks[i].reward] = this->tasks[i + 1].threshold;
+        }
+
+        nextHigherThreshold[envNum][this->tasks[this->tasks.size() - 1].reward] = 100000;
+        rewardToThreshold[envNum][this->tasks[this->tasks.size() - 1].reward] =
+            this->tasks[this->tasks.size() - 1].threshold;
+        rewardToThreshold[envNum][0] = -100000; // reward is always strictly bigger than 0. Reward = 0
+                                        // is when the agents' weights are so low that no tasks are feasible
+    }
+
+    !
+
+        // generate all division rules once so that agents can re-use those
+        for (int i = 1; i <= numPlayers; i++)
     {
         divisionRules[i] = generateDivisionRule(i);
     }
@@ -84,10 +97,11 @@ Game::Game(int numPlayers, int numberOfWeights, vector<Task> tasks,
     //cout << "game weighRangeVec\n " << weightRangeVec << endl;
 }
 
-double Game::evaluateCoalition(vector<int> weights)
+double Game::evaluateCoalition(vector<int> weights, int envNum)
 {
     //http://www.cplusplus.com/reference/algorithm/upper_bound/
     int totalWeight = std::accumulate(weights.begin(), weights.end(), 0);
+    auto& tasks = envs[envNum];
     // base-case: totalWeight is too large
     if (totalWeight > tasks[tasks.size() - 1].threshold)
     {
@@ -114,7 +128,7 @@ double Game::evaluateCoalition(vector<int> weights)
     return tasks[bestTask - tasks.begin() - 1].reward;
 }
 
-double Game::expectedCoalitionValue(Agent &predictor, Coalition coalition)
+double Game::expectedCoalitionValue(Agent &predictor, Coalition coalition, int envNum)
 {
     //cout << "expectedCoalitionValue begin!" << endl;
     double ret = 0;
@@ -126,19 +140,19 @@ double Game::expectedCoalitionValue(Agent &predictor, Coalition coalition)
         {
             prob *= predictor.belief(agentName, weights[i] - minWeight);
         }
-        ret += prob * evaluateCoalition(weights);
+        ret += prob * evaluateCoalition(weights, envNum);
     }
 
     //cout << "expectedCoalitionValue done!" << endl;
     return ret;
 }
 
-double Game::expectedSingletonValue(Agent &predictor, int agentName)
+double Game::expectedSingletonValue(Agent &predictor, int agentName, int envNum)
 {
     double ret = 0;
     for (int weight : weightRange)
     {
-        ret += predictor.belief(agentName, weight - minWeight) * evaluateCoalition({weight});
+        ret += predictor.belief(agentName, weight - minWeight) * evaluateCoalition({weight}, envNum);
     }
     //cout << "expectedSingletonValue of  " << agentName << " according to " << predictor.name
     //<< " is " << ret << endl;
@@ -146,10 +160,10 @@ double Game::expectedSingletonValue(Agent &predictor, int agentName)
 }
 
 // response: "yes" --> 1, "no" --> 0
-pair<double, map<int, int>> Game::predictReponses(Agent &predictor, Proposal &proposal, set<int> predictees)
+pair<double, map<int, int>> Game::predictReponses(Agent &predictor, Proposal &proposal, set<int> predictees, int envNum)
 {
     map<int, int> responses;
-    double expectedCoalValue = expectedCoalitionValue(predictor, proposal.first);
+    double expectedCoalValue = expectedCoalitionValue(predictor, proposal.first, envNum);
     for (auto [i, agentName] : enumerate(proposal.first))
     {
         if (predictees.size() > 0 && predictees.find(agentName) == predictees.end())
@@ -159,7 +173,7 @@ pair<double, map<int, int>> Game::predictReponses(Agent &predictor, Proposal &pr
         }
         double gainJoining = expectedCoalValue * proposal.second[i];
 
-        double gainRefuse = expectedSingletonValue(predictor, agentName);
+        double gainRefuse = expectedSingletonValue(predictor, agentName, envNum);
         //cout << "Predictor " << predictor.name << " for predictee " << agentName << " div " << proposal.second;
         //cout << "\n expectedCoalVal " << expectedCoalValue << " gainJoining " << gainJoining << " gainRefuse "
         //<< gainRefuse << endl;
@@ -179,15 +193,17 @@ pair<double, map<int, int>> Game::predictReponses(Agent &predictor, Proposal &pr
     return make_pair(expectedCoalValue, responses);
 }
 
-double Game::evaluateCoalition(Coalition &coalition)
+double Game::evaluateCoalition(Coalition &coalition, int envNum)
 {
     vector<int> weights = {};
     for (int agentName : coalition)
     {
         weights.push_back(agents[agentName].weight);
     }
-    return evaluateCoalition(weights);
+    return evaluateCoalition(weights, int envNum);
 }
+
+// TODO: have to change the runAlgorithms in main.cpp to save the CS correctly!
 void Game::updateWealth(CoalitionStructure &CS)
 {
     for (auto &coalitionInfo : CS)
@@ -218,16 +234,15 @@ double Game::countCurrentAvgInversions()
     return totInversions / numPlayers;
 }
 
-
-// same as countCurrentAvgInversion except here the candidate is NOT agent's mean-prediction but the 
+// same as countCurrentAvgInversion except here the candidate is NOT agent's mean-prediction but the
 // wealth signal.
 double Game::computeCurrentSignalFidelity()
 {
     vector<double> currentSignal;
-    for (auto &agent : agents){
+    for (auto &agent : agents)
+    {
         currentSignal.push_back(agent.currentWealth);
     }
 
     return countInversions(agentWeights, currentSignal);
 }
-

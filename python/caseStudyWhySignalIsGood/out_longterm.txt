@@ -1,0 +1,1 @@
+softmax cumulative payoff 4986.1 | signal cumulative payoff 4993.7

@@ -171,7 +171,7 @@ def write_beliefs(beliefs, filename):
                 f.write('\n')
 
 def read_beliefs(filename):
-    print('reading beliefs from file ', filename)
+    #print('reading beliefs from file ', filename)
     beliefs = [[]]
     if os.stat(filename).st_size == 0:
         # empty file
