@@ -1,0 +1,133 @@
+iled to write key 1950826801 to SMC with error code 86Failed to write key 1950829892 to SMC with error code 86Failed to write key 1950826800 to SMC with error code 86Failed to write key 1950826829 to SMC with error code 86Failed to write key 1950826801 to SMC with error code 86Failed to write key 1950829892 to SMC with error code 86TRACER----> updateSlowWifiRxAmpduStats(13665)ChipStats: txba:0
+[ 5137.029216]: Failed to write key 1950826800 to SMC with error code 86Failed to write key 1950826829 to SMC with error code 86Failed to write key 1950826801 to SMC with error code 86Failed to write key 1950829892 to SMC with error code 86LQM-WiFi: (5G) rxCrsGlitch=63 rxBphyCrsGlitch=0 rxStart=365 rxBadPLCP=38 rxBphyBadPLCP=0 rxBadFCS=24 rxFifo0Ovfl=0 rxFifo1Ovfl=0 rx_nobuf=0 rxAnyErr=141 rxResponseTimeout=3 rxNoDelim=2 rxFrmTooLong=0 rxFrmTooShort=6
+[ 5137.052389]: LQM-WiFi: (5G) txRTSFrm=15 txRTSFail=0 rxCTSUcast=12 rxRTSUcast=19 txCTSFrm=19 txAMPDU=12 rxBACK=12 txPhyError=0 txAllFrm=68 txMPDU=6 txUcast=15 rxACKUcast=3
+[ 5137.052397]: LQM-WiFi: (5G)  rxBeaconMbss=50 rxBeaconObss=56 rxDataUcastMbss=23 rxMgmtUcastMbss=0 rxCNTRLUcast=48 txACKFrm=0 txBACK=17
+[ 5137.052404]: LQM-WiFi: RX AMPDU (5G) rxAmpdu=28 txBACK(Ucode)=17 rxMpduInAmpdu=38 rxholes=0 rxdup=0 rxstuck=0 rxoow=0 rxoos=0 rxaddbareq=0 txaddbaresp=0 rxbar=0 txdelba=0 rxdelba=0 rxQueued=0
+[ 5137.052412]: LQM-WiFi: chan 149 OfdmDesense 0dB
+[ 5137.094680]: [DCP:FramebufferDCP.cpp:2066] swap_signal on a layer that is already marked as completed
+
+[ 5137.230608]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5137.230633]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5137.365705]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5137.365727]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5137.551784]: LQM-WiFi:TX(80:02:9C:10:EA:7F) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BE<25 0 0 0 0 0 0 0 0 0 0> (5001ms)
+[ 5137.551820]: LQM-WiFi:TX(80:02:9C:10:EA:7F) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BK<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+[ 5137.551834]: LQM-WiFi:TX(80:02:9C:10:EA:7F) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VI<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+[ 5137.551844]: LQM-WiFi:TX(80:02:9C:10:EA:7F) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VO<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+[ 5137.551884]: LQM-WiFi:L3 Control VO TX(80:02:9C:10:EA:7F) Success=0 NoACK=0 Expired=0 OtherErr=0
+[ 5137.551893]: LQM-WiFi:TX(FF:FF:FF:FF:FF:FF) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BE<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+[ 5137.771304]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5137.771316]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5137.795900]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5137.795925]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5138.034683]: Failed to write key 1950826800 to SMC with error code 86Failed to write key 1950826829 to SMC with error code 86Failed to write key 1950826801 to SMC with error code 86Failed to write key 1950829892 to SMC with error code 86HID Activity Tickle (type:0 sender:100000e3c)
+[ 5138.603208]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5138.671968]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5138.671989]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5138.761614]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5138.761635]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5138.831218]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5138.831246]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5138.896986]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5138.897012]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5139.009165]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5139.009194]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5139.043976]: Failed to write key 1950826800 to SMC with error code 86Failed to write key 1950826829 to SMC with error code 86Failed to write key 1950826801 to SMC with error code 86Failed to write key 1950829892 to SMC with error code 86HID Activity Tickle (type:0 sender:100000e3c)
+[ 5139.255790]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5139.413209]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5139.413233]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5139.999179]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5139.999205]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5140.051483]: Failed to write key 1950826800 to SMC with error code 86Failed to write key 1950826829 to SMC with error code 86Failed to write key 1950826801 to SMC with error code 86Failed to write key 1950829892 to SMC with error code 86HID Activity Tickle (type:0 sender:100000e3c)
+[ 5140.066041]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5140.111957]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5140.111975]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5140.314299]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5140.314329]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5140.383740]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5140.383766]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5140.471643]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5140.471664]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5140.561652]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5140.561672]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5140.650683]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5140.650704]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5140.721261]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5140.721287]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5140.764187]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5140.764208]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5141.061092]: Failed to write key 1950826800 to SMC with error code 86Failed to write key 1950826829 to SMC with error code 86Failed to write key 1950826801 to SMC with error code 86Failed to write key 1950829892 to SMC with error code 86HID Activity Tickle (type:0 sender:100000e3c)
+[ 5141.214229]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5141.304345]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5141.304366]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5141.370499]: tx_flush:1074: disk3 xid 429703 tx stats: # 3420 finish 3278 enter 3756 wait 210 9532us close 147us flush 1000us
+[ 5141.394199]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5141.394224]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5141.529132]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5141.529163]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5141.754285]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5141.754312]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5141.777043]: TRACER----> updateSlowWifiRxAmpduStats(13665)ChipStats: txba:0
+[ 5141.866664]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5141.866685]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5141.891236]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5141.891261]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5141.978089]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5141.978109]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5142.003450]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5142.003474]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5142.067675]: LQM-WiFi: (5G) rxCrsGlitch=169 rxBphyCrsGlitch=0 rxStart=1297 rxBadPLCP=175 rxBphyBadPLCP=0 rxBadFCS=147 rxFifo0Ovfl=0 rxFifo1Ovfl=0 rx_nobuf=0 rxAnyErr=817 rxResponseTimeout=6 rxNoDelim=12 rxFrmTooLong=0 rxFrmTooShort=50
+[ 5142.067697]: LQM-WiFi: (5G) txRTSFrm=24 txRTSFail=0 rxCTSUcast=20 rxRTSUcast=26 txCTSFrm=26 txAMPDU=20 rxBACK=20 txPhyError=0 txAllFrm=107 txMPDU=50 txUcast=28 rxACKUcast=6
+[ 5142.067705]: LQM-WiFi: (5G)  rxBeaconMbss=47 rxBeaconObss=140 rxDataUcastMbss=29 rxMgmtUcastMbss=0 rxCNTRLUcast=79 txACKFrm=0 txBACK=22
+[ 5142.067712]: LQM-WiFi: RX AMPDU (5G) rxAmpdu=11 txBACK(Ucode)=22 rxMpduInAmpdu=14 rxholes=0 rxdup=0 rxstuck=0 rxoow=0 rxoos=0 rxaddbareq=0 txaddbaresp=0 rxbar=0 txdelba=0 rxdelba=0 rxQueued=0
+[ 5142.067720]: LQM-WiFi: chan 149 OfdmDesense 0dB
+[ 5142.068065]: Failed to write key 1950826800 to SMC with error code 86Failed to write key 1950826829 to SMC with error code 86Failed to write key 1950826801 to SMC with error code 86Failed to write key 1950829892 to SMC with error code 86HID Activity Tickle (type:0 sender:100000e3c)
+[ 5142.091674]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5142.225679]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5142.225702]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5142.315716]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5142.315743]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5142.541653]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5142.541675]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5142.552947]: LQM-WiFi:TX(80:02:9C:10:EA:7F) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BE<1 0 0 0 0 0 0 0 0 0 0> (5001ms)
+[ 5142.552965]: LQM-WiFi:TX(80:02:9C:10:EA:7F) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BK<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+[ 5142.552972]: LQM-WiFi:TX(80:02:9C:10:EA:7F) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VI<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+[ 5142.552978]: LQM-WiFi:TX(80:02:9C:10:EA:7F) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> VO<0 0 0 0 0 0 0 0 0 0 0> (5001ms)
+[ 5142.552994]: LQM-WiFi:L3 Control VO TX(80:02:9C:10:EA:7F) Success=0 NoACK=0 Expired=0 OtherErr=0
+[ 5142.552999]: LQM-WiFi:TX(FF:FF:FF:FF:FF:FF) AC<SU MS NB NRS NA CM EX TF FFP MRET FLE> BE<2 0 0 0 0 0 0 0 0 0 0> (5001ms)
+[ 5142.654208]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5142.654244]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5142.789560]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5142.789583]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5142.856655]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5142.856677]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5142.881052]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5142.881072]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5142.946933]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5142.946952]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5143.077840]: Failed to write key 1950826800 to SMC with error code 86Failed to write key 1950826829 to SMC with error code 86Failed to write key 1950826801 to SMC with error code 86Failed to write key 1950829892 to SMC with error code 86HID Activity Tickle (type:0 sender:100000e3c)
+[ 5143.193326]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5143.260703]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5143.260724]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5143.350578]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5143.350591]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5143.464169]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5143.464186]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5143.576725]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5143.576747]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5143.644343]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5143.644364]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5143.668532]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5143.668557]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5143.711667]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5143.711692]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5143.796427]: AMFI: Denying core dump for pid 9869 (cfbackd)Disabling CS_ENFORCEMENT for entitled process.HID Activity Tickle (type:0 sender:100000e3c)
+[ 5143.869079]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5143.871843]: System Policy: cfbackd(9873) deny(1) file-read-data /dev/rdisk3s2System Policy: cfbackd(9873) deny(1) file-read-data /dev/rdisk3s5System Policy: cfbackd(9873) deny(1) file-read-data /dev/rdisk3s4System Policy: cfbackd(9873) deny(1) file-read-data /dev/rdisk3s6System Policy: cfbackd(9873) deny(1) file-read-data /dev/rdisk3s1s1System Policy: cfbackd(9873) deny(1) file-read-data /dev/rdisk3s6System Policy: cfbackd(9873) deny(1) file-read-data /dev/rdisk3s5System Policy: cfbackd(9873) deny(1) file-read-data /dev/rdisk3s1s1Sandbox: sandboxd(9811) deny(1) mach-lookup com.apple.oahdHID Activity Tickle (type:0 sender:100000e3c)
+[ 5143.936639]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5144.049179]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5144.049198]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5144.089555]: Failed to write key 1950826800 to SMC with error code 86Failed to write key 1950826829 to SMC with error code 86Failed to write key 1950826801 to SMC with error code 86Failed to write key 1950829892 to SMC with error code 86HID Activity Tickle (type:0 sender:100000e3c)
+[ 5144.118486]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
+[ 5144.161843]: HID Activity Tickle (type:0 sender:100000e3c)
+[ 5144.161865]: PMRD: requestUserActive from IOBluetoothHIDDriver (0x100000e3c) for kIOHIDSystemActivityTickle nxEvent: 0x5230000
